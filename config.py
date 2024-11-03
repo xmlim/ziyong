@@ -8,7 +8,7 @@ source_urls = [
     "https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt",
     "https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V6.txt",
     "https://live.zhoujie218.top/tv/iptv6.txt",
-    "https://tv.youdu.fan:666/live/",
+    "https://github.com/bravenavigator/link/blob/main/live.m3u",
     "http://ww.weidonglong.com/dsj.txt",
     "http://xhztv.top/zbc.txt",
     "https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt",
