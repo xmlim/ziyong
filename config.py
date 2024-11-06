@@ -25,11 +25,9 @@ source_urls = [
     "https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt",
     "http://175.178.251.183:6689/live.txt",
     "http://102.134.54.106:3099/live/全国酒店源mini.txt",
-    "https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt",
     "https://m3u.ibert.me/txt/fmml_dv6.txt",
     "https://m3u.ibert.me/txt/o_cn.txt",
     "https://m3u.ibert.me/txt/j_iptv.txt",
-    "https://raw.githubusercontent.com/PizazzGY/TVBox/main/live.txt",
     "https://raw.githubusercontent.com/xzw832/cmys/main/S_CCTV.txt",
     "https://raw.githubusercontent.com/xzw832/cmys/main/S_weishi.txt",
     "http://itv.22m.top/ITVBox/tv/tvonline.txt"
