@@ -13,7 +13,7 @@ source_urls = [
     "http://xhztv.top/zbc.txt",
     "https://raw.githubusercontent.com/mlvjfchen/TV/main/iptv_list.txt",
     "https://raw.githubusercontent.com/qingwen07/awesome-iptv/main/tvbox_live_all.txt",
-    "https://github.com/xmlim/1/blob/ee638c7bcbf6230c74f7bbf5de980b677cd226a5/1.txt",
+    "https://github.com/xmlim/1/blob/main/1.txt",
     "https://raw.githubusercontent.com/Guovin/TV/gd/result.txt",
     "http://home.jundie.top:81/Cat/tv/live.txt",
     "https://raw.githubusercontent.com/vbskycn/iptv/master/tv/hd.txt",
