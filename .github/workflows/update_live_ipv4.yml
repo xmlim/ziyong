@@ -1,0 +1,80 @@
+name   名字: 过滤 IPV4 地址
+
+on:   :
+  schedule:   日程安排:
+    - cron: '0 18 * * *'  # 北京时间凌晨2点运行一次
+  workflow_dispatch:  # 允许手动触发
+
+permissions:   权限:
+  contents: write   内容:写
+
+jobs:   工作:
+  filter-and-push:
+    runs-on: ubuntu-latest   运行环境：Ubuntu最新版本
+    steps:   步骤:
+    - uses: actions/checkout@v3
+
+    - name: 设置 Python
+      uses: actions/setup-python@v4
+      with:   :
+        python-version: '3.9'
+
+    - name: 创建 requirements.txt
+      run: |   运行:|
+        echo "requests" >> requirements.txt
+        echo "aiohttp" >> requirements.txt
+
+    - name: 安装依赖
+      run: |   运行:|
+        python -m pip install --upgrade pip使用Python命令行界面，输入以下命令：
+```
+python -m pip install --upgrade pip使用Python命令行界面，输入以下命令：
+```
+python -m pip install --upgrade pip使用Python命令行界面，输入以下命令：
+```
+python -m pip install --upgrade pip
+```
+这将安装或升级pip（Python包管理器）。
+```
+这将安装或升级pip（Python包管理器）。
+```
+这将安装或升级pip（Python包管理器）。
+        pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+    - name: 安装 ffmpeg
+      run: |   运行:|
+        sudo apt-get update   Sudo apt-get update
+        sudo apt-get install -y ffmpeg使用超级用户权限安装 FFmpeg：
+```bash   ”“bash
+sudo apt-get install -y ffmpeg
+```
+请确保您已经拥有 root 权限或已经使用 `sudo` 命令提升了权限。安装完成后，您可以使用 `ffmpeg` 命令行工具来转换和处理视频、音频和图像文件。
+
+    - name: 验证 aiohttp 安装
+      run: python -c "import aiohttp"
+
+    - name: 运行过滤脚本
+      run: python script.py   运行：Python 脚本.py
+
+    - name: 打印 live_ipv4.txt 内容
+      run: |   运行:|
+        cat live_ipv4.txt
+
+    - name: 如果有更改则提交并推送
+      run: |   运行:|
+        git config --global user.email "action@github.com"将以下命令翻译成中文：
+
+`git config --global user.email "action@github.com"`
+
+命令翻译为：
+
+`git 配置 --全局 用户.email "action@github.com"`
+        git config --global user.name "GitHub Action"
+        git add live_ipv4.txt
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "更新 live_ipv4.txt"
+          git push
+        fi
+
