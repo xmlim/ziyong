@@ -257,7 +257,9 @@ if __name__ == "__main__":
         'http://www.lyyytv.cn/yt/zhibo/1.txt',
         'https://github.moeyy.xyz/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/huyayqk.m3u',
         'https://ghp.ci/raw.githubusercontent.com/MemoryCollection/IPTV/refs/heads/main/itvlist.m3u',
-        'https://live.fanmingming.com/tv/m3u/ipv6.m3u'
+        'https://live.fanmingming.com/tv/m3u/ipv6.m3u',
+        'https://aktv.top/live.m3u',
+        'http://aktv.top/live.txt'
     ]
     
     asyncio.run(process_urls(urls))
