@@ -5,6 +5,10 @@ import asyncio
 import aiohttp
 from concurrent.futures import ThreadPoolExecutor
 from typing import List, Optional
+import json
+import os
+import glob
+from datetime import datetime
 
 # 配置日志记录
 logging.basicConfig(
@@ -81,6 +85,28 @@ def check_stream_validity(url: str) -> bool:
         logging.error(f"Error checking stream {url}: {e}")
         return False
 
+def check_stream_quality(url: str) -> dict:
+    try:
+        command = [
+            'ffprobe',
+            '-v', 'quiet',
+            '-print_format', 'json',
+            '-show_format',
+            '-show_streams',
+            url
+        ]
+        result = subprocess.run(command, capture_output=True, text=True, timeout=10)
+        if result.returncode == 0:
+            data = json.loads(result.stdout)
+            return {
+                'resolution': f"{data['streams'][0].get('width', '未知')}x{data['streams'][0].get('height', '未知')}",
+                'bitrate': data['format'].get('bit_rate', '未知'),
+                'format': data['format'].get('format_name', '未知')
+            }
+    except Exception as e:
+        logging.error(f"Error checking quality for {url}: {e}")
+    return {'resolution': '未知', 'bitrate': '未知', 'format': '未知'}
+
 async def process_urls(urls: List[str]):
     async with aiohttp.ClientSession() as session:
         # 并发检查URL有效性
@@ -114,10 +140,107 @@ async def process_urls(urls: List[str]):
                 else:
                     logging.warning(f"Skipping unplayable stream: {line.split()[0]}")
         
-        # 保存结果
-        with open('live_ipv4.txt', 'w', encoding='utf-8') as file:
-            file.write('\n'.join(valid_lines))
-        logging.info(f"Saved {len(valid_lines)} valid streams to live_ipv4.txt")
+        # 去重
+        valid_lines = remove_duplicates(valid_lines)
+        
+        # 分类
+        categorized_streams = categorize_streams(valid_lines)
+        
+        # 生成统计
+        stats = generate_stats(valid_lines)
+        
+        # 保存分类结果
+        for category, streams in categorized_streams.items():
+            with open(f'live_ipv4_{category}.txt', 'w', encoding='utf-8') as f:
+                f.write('\n'.join(streams))
+        
+        # 保存主文件
+        with open('live_ipv4.txt', 'w', encoding='utf-8') as f:
+            f.write('\n'.join(valid_lines))
+        
+        # 创建备份
+        backup_sources(valid_lines)
+        
+        # 保存统计信息
+        with open('stats.json', 'w', encoding='utf-8') as f:
+            json.dump(stats, f, ensure_ascii=False, indent=2)
+        
+        logging.info(f"处理完成，共有 {stats['total_sources']} 个有效源")
+
+def categorize_streams(lines: List[str]) -> dict:
+    categories = {
+        '央视': [],
+        '卫视': [],
+        '地方': [],
+        '港澳台': [],
+        '其他': []
+    }
+    
+    for line in lines:
+        if 'CCTV' in line.upper():
+            categories['央视'].append(line)
+        elif '卫视' in line:
+            categories['卫视'].append(line)
+        elif any(x in line for x in ['香港', '澳门', '台湾']):
+            categories['港澳台'].append(line)
+        elif any(x in line for x in ['北京', '上海', '广东']):  # 添加更多地方台关键词
+            categories['地方'].append(line)
+        else:
+            categories['其他'].append(line)
+    
+    return categories
+
+def remove_duplicates(lines: List[str]) -> List[str]:
+    seen_urls = set()
+    unique_lines = []
+    
+    for line in lines:
+        if line.startswith('http'):
+            url = line.split()[0]
+            if url not in seen_urls:
+                seen_urls.add(url)
+                unique_lines.append(line)
+        else:
+            unique_lines.append(line)
+    
+    return unique_lines
+
+def backup_sources(valid_lines: List[str]):
+    # 创建备份目录
+    backup_dir = 'backups'
+    os.makedirs(backup_dir, exist_ok=True)
+    
+    # 生成备份文件名
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    backup_file = os.path.join(backup_dir, f'live_ipv4_{timestamp}.txt')
+    
+    # 保存备份
+    with open(backup_file, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(valid_lines))
+    
+    # 只保留最近7天的备份
+    backup_files = sorted(glob.glob(os.path.join(backup_dir, 'live_ipv4_*.txt')))
+    if len(backup_files) > 7:
+        for old_file in backup_files[:-7]:
+            os.remove(old_file)
+
+def generate_stats(valid_lines: List[str]) -> dict:
+    stats = {
+        'total_sources': len(valid_lines),
+        'categories': {},
+        'quality_distribution': {
+            'HD': 0,
+            'SD': 0,
+            'Unknown': 0
+        }
+    }
+    
+    # 统计分类
+    categories = categorize_streams(valid_lines)
+    for category, items in categories.items():
+        stats['categories'][category] = len(items)
+    
+    return stats
 
 if __name__ == "__main__":
     urls = [
