@@ -1,0 +1,77 @@
+name: Update IPTV Sources
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # 每12小时运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-iptv:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run IPTV updater with debug
+      run: |
+        # 启用Python详细输出
+        export PYTHONUNBUFFERED=1
+        # 运行脚本并捕获输出
+        python -u get_iptv.py 2>&1 | tee script_output.log
+        
+        echo "检查生成的文件..."
+        
+        # 检查文件是否存在和内容
+        if [ -f "moyun.txt" ]; then
+          echo "moyun.txt exists, size: $(stat -f%z moyun.txt || stat -c%s moyun.txt)"
+          echo "Content preview:"
+          head -n 10 moyun.txt
+        else
+          echo "moyun.txt not found!"
+        fi
+        
+        if [ -f "iptv_stream.m3u" ]; then
+          echo "iptv_stream.m3u exists, size: $(stat -f%z iptv_stream.m3u || stat -c%s iptv_stream.m3u)"
+          echo "Content preview:"
+          head -n 10 iptv_stream.m3u
+        else
+          echo "iptv_stream.m3u not found!"
+        fi
+    
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add moyun.txt iptv_stream.m3u
+        git commit -m "Update IPTV sources $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+        git push || echo "No changes to push"
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        files: |
+          moyun.txt
+          iptv_stream.m3u
+        name: IPTV Update ${{ github.run_number }}
+        tag_name: v${{ github.run_number }}
+        body: |
+          IPTV直播源自动更新
+          更新时间：$(date '+%Y-%m-%d %H:%M:%S')
+          
+          ## 文件说明
+          - moyun.txt：直播源列表和详细信息
+          - iptv_stream.m3u：直播源文件
