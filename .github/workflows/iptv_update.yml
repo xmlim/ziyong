@@ -1,0 +1,60 @@
+name: Update IPTV Sources
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # 每12小时运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-iptv:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run IPTV updater
+      run: python get_iptv.py
+    
+    - name: Create Release
+      if: success()
+      run: |
+        timestamp=$(date '+%Y%m%d_%H%M%S')
+        echo "TIMESTAMP=$timestamp" >> $GITHUB_ENV
+        
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      if: success()
+      with:
+        files: |
+          iptv_stream.m3u
+          moyun.txt
+        name: IPTV Update ${{ env.TIMESTAMP }}
+        tag_name: v${{ env.TIMESTAMP }}
+        body: |
+          IPTV直播源自动更新
+          更新时间：${{ env.TIMESTAMP }}
+          
+          ## 文件说明
+          - iptv_stream.m3u：直播源文件
+          - moyun.txt：详细信息和源列表
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Commit and push if changed
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add moyun.txt iptv_stream.m3u
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update IPTV sources $(date '+%Y-%m-%d %H:%M:%S')" && git push)
