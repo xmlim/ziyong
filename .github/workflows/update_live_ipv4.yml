@@ -1,82 +1,52 @@
-name   名字: 过滤 IPV4 地址
+name: 过滤 IPV4 地址
 
-on:   :
-  schedule:   日程安排:
+on:
+  schedule:
     - cron: '0 18 * * *'  # 每天UTC 18:00 运行（北京时间凌晨2:00）
   workflow_dispatch:  # 允许手动触发
 
-permissions:   权限:
-  contents: write   内容:写
+permissions:
+  contents: write
 
-jobs:   工作:
+jobs:
   filter-and-push:
-    runs-on: ubuntu-latest   运行环境：Ubuntu最新版本
-    steps:   步骤:
-    - uses: actions/checkout@v3用法：actions/checkout@v3
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
 
     - name: 设置 Python
-      uses: actions/setup-python@v4用途：actions/setup-python@v4
-      with:   :
+      uses: actions/setup-python@v4
+      with:
         python-version: '3.9'  # 指定具体的Python版本
 
     - name: 创建 requirements.txt
-      run: |   运行:|
-        echo "requests" >> requirements.txt将“requests”写入“requirements.txt”文件中。
+      run: |
+        echo "requests" >> requirements.txt
         echo "aiohttp" >> requirements.txt
 
     - name: 安装依赖
-      run: |   运行:|
-        python -m pip install --upgrade pip使用Python命令行界面，输入以下命令：
-```
-python -m pip install --upgrade pip使用Python命令行界面，输入以下命令：
-```
-python -m pip install --upgrade pip使用Python命令行界面，输入以下命令：
-```
-python -m pip install --upgrade pip
-```
-这将安装或升级pip（Python包管理器）。
-```
-这将安装或升级pip（Python包管理器）。
-```
-这将安装或升级pip（Python包管理器）。
+      run: |
+        python -m pip install --upgrade pip
         pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
     - name: 安装 ffmpeg
-      run: |   运行:|
-        sudo apt-get update   Sudo apt-get update
-        sudo apt-get install -y ffmpeg使用超级用户权限安装 FFmpeg：
-```bash   ”“bash
-sudo apt-get install -y ffmpeg使用超级用户权限安装 FFmpeg：
-```bash   ”“bash
-sudo apt-get install -y ffmpeg使用超级用户权限安装 FFmpeg：
-```bash
-sudo apt-get install -y ffmpeg
-```
-请确保您已经拥有 root 权限或已经使用 `sudo` 命令提升了权限。安装完成后，您可以使用 `ffmpeg` 命令行工具来转换和处理视频、音频和图像文件。
-```
-请确保您已经拥有 root 权限或已经使用 `sudo` 命令提升了权限。安装完成后，您可以使用 `ffmpeg` 命令行工具来转换和处理视频、音频和图像文件。
-```
-请确保您已经拥有 root 权限或已经使用 `sudo` 命令提升了权限。安装完成后，您可以使用 `ffmpeg` 命令行工具来转换和处理视频、音频和图像文件。
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg
 
     - name: 验证 aiohttp 安装
-      run: python -c "import aiohttp"运行：`python -c "import aiohttp"`
+      run: python -c "import aiohttp"
 
     - name: 运行过滤脚本
-      run: python script.py   运行：Python 脚本.py
+      run: python script.py
 
     - name: 打印 live_ipv4.txt 内容
-      run: |   运行:|
-        cat live_ipv4.txt   猫live_ipv4.txt
+      run: |
+        cat live_ipv4.txt
 
     - name: 如果有更改则提交并推送
-      run: |   运行:|
-        git config --global user.email "action@github.com"将以下命令翻译成中文：
-
-`git config --global user.email "action@github.com"``git config --global user.email "action@github.com"` 的意思是将用户电子邮件地址设置为 "action@github.com"，并将该设置应用于所有 Git 存储库。 `--global` 选项告诉 Git 将设置应用于所有存储库，而不是仅限于当前存储库。
-
-命令翻译为：
-
-`git 配置 --全局 用户.email "action@github.com"`
+      run: |
+        git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         git add live_ipv4.txt
         if git diff --quiet && git diff --staged --quiet; then
@@ -85,4 +55,3 @@ sudo apt-get install -y ffmpeg
           git commit -m "更新 live_ipv4.txt"
           git push
         fi
-
