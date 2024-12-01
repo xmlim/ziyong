@@ -33,7 +33,35 @@ def filter_content(content):
     if content is None:
         return []
     keywords = ["㊙VIP测试", "关注公众号", "天微科技", "获取测试密码", "更新时间", "♥聚玩盒子", "🌹防失联","📡  更新日期","👉",]
-    return [line for line in content.splitlines() if 'ipv6' not in line.lower() and not any(keyword in line for keyword in keywords)]
+    lines = []
+    current_category = None
+    
+    for line in content.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+            
+        # 处理分类标记
+        if ',' in line and line.endswith('#genre#'):
+            current_category = line
+            lines.append(line)
+            continue
+            
+        # 处理URL行
+        if line.startswith('http'):
+            if ',' in line:  # 如果URL行包含频道名
+                url, name = line.split(',', 1)
+                if current_category and not any(keyword in line for keyword in keywords):
+                    lines.append(f"{url},{name}")
+            else:  # 如果URL行没有频道名
+                if current_category and not any(keyword in line for keyword in keywords):
+                    lines.append(f"{line},未命名频道")
+        else:
+            # 保留其他非URL的描述性文本
+            if not any(keyword in line for keyword in keywords):
+                lines.append(line)
+                
+    return lines
 
 def check_stream_quality(url):
     """检查流的质量并返回一个质量分数"""
@@ -61,7 +89,7 @@ def check_stream_quality(url):
 def fetch_and_filter(urls):
     filtered_lines = []
     
-    # 调整URL获取的并发数，设置为CPU核心数的2倍
+    # 调整URL获取的并发数
     max_fetch_workers = min(32, os.cpu_count() * 2 or 4)
     with ThreadPoolExecutor(max_workers=max_fetch_workers) as executor:
         valid_urls = [url for url in urls if check_url_validity(url)]
@@ -72,94 +100,57 @@ def fetch_and_filter(urls):
     
     # 用于存储按频道分组的URL
     channel_groups = defaultdict(list)
-    current_genre = "未分类"  # 默认分类
+    current_category = None
     
-    # 首先按频道分组
+    # 按频道分组
     for line in filtered_lines:
-        line = line.strip()
-        if not line:  # 跳过空行
-            continue
-            
-        if line.startswith('#genre#'):
-            current_genre = line
-            channel_groups[current_genre].append(line)
-        elif line.startswith('http'):
-            # 修改URL处理逻辑
-            parts = line.split(',')
-            if len(parts) >= 2:
-                url = parts[0]
-                channel_name = ','.join(parts[1:])  # 处理频道名中可能包含逗号的情况
-                channel_groups[current_genre].append(line)
-            else:
-                # 如果URL没有频道名，将其添加到当前分类
-                channel_groups[current_genre].append(line)
-        else:
-            channel_groups[current_genre].append(line)
+        if line.endswith('#genre#'):
+            current_category = line
+            channel_groups[current_category] = [line]
+        elif current_category:
+            channel_groups[current_category].append(line)
     
     # 调整流媒体质量检测的并发数
     max_stream_workers = min(5, os.cpu_count() or 2)
-    valid_lines = []
-    
-    # 添加调试日志
-    logging.info(f"开始处理频道组，共 {len(channel_groups)} 个分组")
+    final_lines = []
     
     with ThreadPoolExecutor(max_workers=max_stream_workers) as executor:
-        for genre, urls in channel_groups.items():
-            logging.info(f"处理分组: {genre}, 包含 {len(urls)} 个URL")
+        for category, items in channel_groups.items():
+            # 添加分类标记
+            final_lines.append(category)
             
-            if genre.startswith('#genre#'):
-                valid_lines.append(genre)
-                continue
-            
-            # 批量提交检测任务
+            # 收集当前分类下的URL
             url_scores = []
-            batch_size = max_stream_workers
-            
-            # 只对HTTP链接进行质量检测
-            http_urls = [url for url in urls if url.startswith('http')]
-            
-            for i in range(0, len(http_urls), batch_size):
-                batch_urls = http_urls[i:i + batch_size]
-                batch_scores = []
-                
-                for url_line in batch_urls:
-                    url = url_line.split(',')[0]
+            for item in items:
+                if item.startswith('http'):
+                    url = item.split(',')[0]
                     try:
                         score = executor.submit(check_stream_quality, url)
-                        batch_scores.append((url_line, score))
+                        url_scores.append((item, score))
                     except Exception as e:
-                        logging.error(f"Error submitting quality check for {url}: {e}")
-                
-                # 等待当前批次完成
-                for url_line, score in batch_scores:
-                    try:
-                        quality_score = score.result(timeout=30)
-                        if quality_score > 0:
-                            url_scores.append((url_line, quality_score))
-                            logging.info(f"URL质量分数: {url_line} -> {quality_score}")
-                    except Exception as e:
-                        logging.error(f"Error checking quality for {url_line}: {e}")
+                        logging.error(f"Error checking {url}: {e}")
             
-            # 对当前频道的所有URL进行排序
-            sorted_urls = sorted(url_scores, key=lambda x: x[1], reverse=True)
-            valid_lines.extend(url_line for url_line, score in sorted_urls)
-    
-    # 确保结果不为空
-    if not valid_lines:
-        logging.warning("没有找到有效的直播源")
-        return
+            # 等待质量检测完成并排序
+            valid_urls = []
+            for item, score in url_scores:
+                try:
+                    quality = score.result(timeout=30)
+                    if quality > 0:
+                        valid_urls.append((item, quality))
+                except Exception as e:
+                    logging.error(f"Error getting result for {item}: {e}")
+            
+            # 按质量排序并添加到结果中
+            sorted_urls = sorted(valid_urls, key=lambda x: x[1], reverse=True)
+            final_lines.extend(url for url, _ in sorted_urls)
     
     # 保存结果
-    with open('live_ipv4.txt', 'w', encoding='utf-8') as file:
-        file.write('\n'.join(valid_lines))
-    
-    # 验证文件是否写入成功
-    if os.path.exists('live_ipv4.txt'):
-        with open('live_ipv4.txt', 'r', encoding='utf-8') as file:
-            content = file.read()
-            logging.info(f"文件写入成功，共 {len(content.splitlines())} 行")
+    if final_lines:
+        with open('live_ipv4.txt', 'w', encoding='utf-8') as file:
+            file.write('\n'.join(final_lines))
+        logging.info(f"成功写入 {len(final_lines)} 行")
     else:
-        logging.error("文件写入失败")
+        logging.warning("没有找到有效的直播源")
 
 if __name__ == "__main__":
     urls = [
