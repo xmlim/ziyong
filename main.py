@@ -114,6 +114,17 @@ def updateChannelUrlsM3U(channels, template_channels):
         
         logging.info("开始更新频道列表...")
         
+        # 读取原始的demo.txt内容，保留频道分类结构
+        with open('demo.txt', 'r', encoding='utf-8') as f:
+            original_content = f.read()
+            original_lines = original_content.split('\n')
+        
+        # 提取所有分类标题
+        categories = []
+        for line in original_lines:
+            if line.strip().endswith('#genre#'):
+                categories.append(line.strip())
+        
         # 处理公告
         for group in config.announcements:
             for announcement in group['entries']:
@@ -136,52 +147,86 @@ def updateChannelUrlsM3U(channels, template_channels):
                     f_m3u.write(f"{announcement['url']}\n")
                     f_txt.write(f"{announcement['name']},{announcement['url']}\n")
             
-            # 处理频道
-            for category, channel_list in template_channels.items():
-                logging.info(f"处理分类: {category}")
-                f_txt.write(f"{category},#genre#\n")
-                
-                if category in channels:
-                    for channel_name in channel_list:
-                        if channel_name in channels[category]:
-                            try:
-                                # 排序URLs
-                                sorted_urls = sorted(channels[category][channel_name], 
-                                                   key=lambda url: not is_ipv6(url) if config.ip_version_priority == "ipv6" else is_ipv6(url))
-                                
-                                # 过滤URLs
-                                filtered_urls = []
-                                for url in sorted_urls:
-                                    if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist):
-                                        filtered_urls.append(url)
-                                        written_urls.add(url)
-                                
-                                # 使用新的筛选功能选择最佳链接
-                                filtered_urls = filter_best_urls(channel_name, filtered_urls)
-                                logging.info(f"频道 {channel_name} 筛选后保留 {len(filtered_urls)} 个链接")
-                                
-                                # 处理每个URL
-                                total_urls = len(filtered_urls)
-                                for index, url in enumerate(filtered_urls, start=1):
-                                    try:
+            # 按原始分类顺序处理频道
+            current_category = None
+            current_channels = []
+            
+            for line in original_lines:
+                line = line.strip()
+                if not line:
+                    continue
+                    
+                if line.endswith('#genre#'):
+                    # 写入前一个分类的内容
+                    if current_category and current_channels:
+                        for channel_name in current_channels:
+                            if current_category in channels and channel_name in channels[current_category]:
+                                try:
+                                    # 获取并过滤URL
+                                    channel_urls = channels[current_category][channel_name]
+                                    filtered_urls = []
+                                    for url in channel_urls:
+                                        if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist):
+                                            filtered_urls.append(url)
+                                            written_urls.add(url)
+                                    
+                                    # 使用新的筛选功能选择最佳链接
+                                    filtered_urls = filter_best_urls(channel_name, filtered_urls)
+                                    
+                                    # 写入链接
+                                    total_urls = len(filtered_urls)
+                                    for index, url in enumerate(filtered_urls, start=1):
                                         if is_ipv6(url):
                                             url_suffix = f"$LR•IPV6" if total_urls == 1 else f"$LR•IPV6『线路{index}』"
                                         else:
                                             url_suffix = f"$LR•IPV4" if total_urls == 1 else f"$LR•IPV4『线路{index}』"
-                                            
+                                        
                                         base_url = url.split('$', 1)[0] if '$' in url else url
                                         new_url = f"{base_url}{url_suffix}"
                                         
-                                        # 写入文件
-                                        f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
+                                        f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{current_category}\",{channel_name}\n")
                                         f_m3u.write(new_url + "\n")
                                         f_txt.write(f"{channel_name},{new_url}\n")
-                                    except Exception as e:
-                                        logging.error(f"处理URL时出错: {channel_name} - {url}: {str(e)}")
-                            except Exception as e:
-                                logging.error(f"处理频道时出错: {channel_name}: {str(e)}")
-                
-                f_txt.write("\n")
+                                except Exception as e:
+                                    logging.error(f"处理频道出错: {channel_name}: {str(e)}")
+                    
+                    # 开始新分类
+                    current_category = line.split(',')[0].strip()
+                    current_channels = []
+                    f_txt.write(f"{line}\n")
+                elif ',' not in line:
+                    # 这是一个频道名称
+                    current_channels.append(line.strip())
+            
+            # 处理最后一个分类
+            if current_category and current_channels:
+                for channel_name in current_channels:
+                    if current_category in channels and channel_name in channels[current_category]:
+                        try:
+                            channel_urls = channels[current_category][channel_name]
+                            filtered_urls = []
+                            for url in channel_urls:
+                                if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist):
+                                    filtered_urls.append(url)
+                                    written_urls.add(url)
+                            
+                            filtered_urls = filter_best_urls(channel_name, filtered_urls)
+                            
+                            total_urls = len(filtered_urls)
+                            for index, url in enumerate(filtered_urls, start=1):
+                                if is_ipv6(url):
+                                    url_suffix = f"$LR•IPV6" if total_urls == 1 else f"$LR•IPV6『线路{index}』"
+                                else:
+                                    url_suffix = f"$LR•IPV4" if total_urls == 1 else f"$LR•IPV4『线路{index}』"
+                                
+                                base_url = url.split('$', 1)[0] if '$' in url else url
+                                new_url = f"{base_url}{url_suffix}"
+                                
+                                f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{current_category}\",{channel_name}\n")
+                                f_m3u.write(new_url + "\n")
+                                f_txt.write(f"{channel_name},{new_url}\n")
+                        except Exception as e:
+                            logging.error(f"处理频道出错: {channel_name}: {str(e)}")
         
         logging.info("频道列表更新完成")
         
