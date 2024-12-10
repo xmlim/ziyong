@@ -11,18 +11,21 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def parse_template(template_file):
     template_channels = OrderedDict()
     current_category = None
-
+    
     with open(template_file, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
-            if line and not line.startswith("#"):
-                if "#genre#" in line:
-                    current_category = line.split(",")[0].strip()
-                    template_channels[current_category] = []
-                elif current_category:
-                    channel_name = line.split(",")[0].strip()
+            if not line:
+                continue
+                
+            if "#genre#" in line:
+                current_category = line.split(",")[0].strip()
+                template_channels[current_category] = []
+            elif current_category and ',' not in line:  # 修改这里，处理没有逗号的频道名称行
+                channel_name = line.strip()
+                if channel_name:  # 确保不是空行
                     template_channels[current_category].append(channel_name)
-
+    
     return template_channels
 
 def fetch_channels(url):
@@ -76,32 +79,44 @@ def fetch_channels(url):
 
 def match_channels(template_channels, all_channels):
     matched_channels = OrderedDict()
-
+    
     for category, channel_list in template_channels.items():
         matched_channels[category] = OrderedDict()
         for channel_name in channel_list:
+            matched_urls = []
             for online_category, online_channel_list in all_channels.items():
                 for online_channel_name, online_channel_url in online_channel_list:
                     if channel_name == online_channel_name:
-                        matched_channels[category].setdefault(channel_name, []).append(online_channel_url)
-
+                        matched_urls.append(online_channel_url)
+            if matched_urls:  # 只有当找到匹配的URL时才添加到结果中
+                matched_channels[category][channel_name] = matched_urls
+    
     return matched_channels
 
 def filter_source_urls(template_file):
     template_channels = parse_template(template_file)
     source_urls = config.source_urls
-
+    
     all_channels = OrderedDict()
     for url in source_urls:
-        fetched_channels = fetch_channels(url)
-        for category, channel_list in fetched_channels.items():
-            if category in all_channels:
-                all_channels[category].extend(channel_list)
-            else:
-                all_channels[category] = channel_list
-
+        try:
+            fetched_channels = fetch_channels(url)
+            for category, channel_list in fetched_channels.items():
+                if category in all_channels:
+                    all_channels[category].extend(channel_list)
+                else:
+                    all_channels[category] = channel_list
+        except Exception as e:
+            logging.error(f"处理源URL出错 {url}: {str(e)}")
+    
     matched_channels = match_channels(template_channels, all_channels)
-
+    
+    # 打印调试信息
+    for category, channels in matched_channels.items():
+        logging.info(f"分类 {category} 包含 {len(channels)} 个频道")
+        for channel, urls in channels.items():
+            logging.info(f"  频道 {channel} 有 {len(urls)} 个链接")
+    
     return matched_channels, template_channels
 
 def is_ipv6(url):
