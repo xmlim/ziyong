@@ -4,6 +4,7 @@ import logging
 from collections import OrderedDict
 from datetime import datetime
 import config
+from typing import List, Tuple
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler("function.log", "w", encoding="utf-8"), logging.StreamHandler()])
 
@@ -137,6 +138,9 @@ def updateChannelUrlsM3U(channels, template_channels):
                                 if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist):
                                     filtered_urls.append(url)
                                     written_urls.add(url)
+                            
+                            # 使用新的筛选功能选择最佳链接
+                            filtered_urls = filter_best_urls(channel_name, filtered_urls)
 
                             total_urls = len(filtered_urls)
                             for index, url in enumerate(filtered_urls, start=1):
@@ -156,6 +160,108 @@ def updateChannelUrlsM3U(channels, template_channels):
                                 f_txt.write(f"{channel_name},{new_url}\n")
 
             f_txt.write("\n")
+
+def score_url(url: str) -> int:
+    """
+    对URL进行质量评分
+    """
+    score = 0
+    url_lower = url.lower()
+    
+    # 根据关键词评分
+    for keyword, points in config.QUALITY_KEYWORDS.items():
+        if keyword in url_lower:
+            score += points
+    
+    # 额外的评分规则
+    if 'http' in url_lower:  # 有效的URL
+        score += 10
+    if '.m3u8' in url_lower:  # m3u8格式通常更稳定
+        score += 5
+    
+    return score
+
+def filter_best_urls(channel_name: str, urls: List[str]) -> List[str]:
+    """
+    筛选最佳的URL链接
+    """
+    if not urls:
+        return []
+    
+    # 如果链接数量小于等于最大保留数，直接返回
+    if len(urls) <= config.MAX_LINKS:
+        return urls
+    
+    # 对URLs进行评分并排序
+    scored_urls: List[Tuple[int, str]] = [(score_url(url), url) for url in urls]
+    scored_urls.sort(reverse=True)  # 按分数从高到低排序
+    
+    # 只保留分数最高的MAX_LINKS个链接
+    best_urls = [url for score, url in scored_urls[:config.MAX_LINKS]]
+    
+    return best_urls
+
+def process_channel_content(content: str) -> str:
+    """
+    处理频道内容，对多链接进行筛选
+    """
+    lines = content.split('\n')
+    processed_lines = []
+    current_channel = None
+    current_urls = []
+    
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+            
+        if line.endswith('#genre#'):  # 分类行
+            processed_lines.append(line)
+        elif ',' not in line:  # 频道名称行
+            # 处理前一个频道的URLs
+            if current_channel and current_urls:
+                best_urls = filter_best_urls(current_channel, current_urls)
+                for url in best_urls:
+                    processed_lines.append(f"{current_channel},{url}")
+            
+            current_channel = line
+            current_urls = []
+        else:  # URL行
+            channel, url = line.split(',', 1)
+            if channel == current_channel:
+                current_urls.append(url)
+            else:
+                # 处理新频道
+                if current_channel and current_urls:
+                    best_urls = filter_best_urls(current_channel, current_urls)
+                    for url in best_urls:
+                        processed_lines.append(f"{current_channel},{url}")
+                current_channel = channel
+                current_urls = [url]
+    
+    # 处理最后一个频道
+    if current_channel and current_urls:
+        best_urls = filter_best_urls(current_channel, current_urls)
+        for url in best_urls:
+            processed_lines.append(f"{current_channel},{url}")
+    
+    return '\n'.join(processed_lines)
+
+def main():
+    try:
+        # 读取原始文件
+        with open('demo.txt', 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # 处理内容
+        processed_content = process_channel_content(content)
+        
+        # 写入处理后的内容
+        with open('demo.txt', 'w', encoding='utf-8') as f:
+            f.write(processed_content)
+            
+    except Exception as e:
+        print(f"Error processing file: {str(e)}")
 
 if __name__ == "__main__":
     template_file = "demo.txt"
