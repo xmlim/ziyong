@@ -137,6 +137,9 @@ def updateChannelUrlsM3U(channels, template_channels):
                                 if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist):
                                     filtered_urls.append(url)
                                     written_urls.add(url)
+                            
+                            if len(filtered_urls) > 1:
+                                filtered_urls = filtered_urls[:10]
 
                             total_urls = len(filtered_urls)
                             for index, url in enumerate(filtered_urls, start=1):
