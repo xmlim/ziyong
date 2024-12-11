@@ -111,6 +111,7 @@ def is_ipv6(url):
 
 def updateChannelUrlsM3U(channels, template_channels):
     written_urls = set()
+    written_urls_ipv6 = set()
 
     current_date = datetime.now().strftime("%Y-%m-%d")
     for group in config.announcements:
@@ -118,50 +119,61 @@ def updateChannelUrlsM3U(channels, template_channels):
             if announcement['name'] is None:
                 announcement['name'] = current_date
 
-    with open("live.m3u", "w", encoding="utf-8") as f_m3u:
-        f_m3u.write(f"""#EXTM3U x-tvg-url={",".join(f'"{epg_url}"' for epg_url in config.epg_urls)}\n""")
+    with open("live.m3u", "w", encoding="utf-8") as f_m3u, \
+         open("live.txt", "w", encoding="utf-8") as f_txt, \
+         open("live_ipv6.m3u", "w", encoding="utf-8") as f_m3u_ipv6, \
+         open("live_ipv6.txt", "w", encoding="utf-8") as f_txt_ipv6:
+        
+        m3u_header = f"""#EXTM3U x-tvg-url={",".join(f'"{epg_url}"' for epg_url in config.epg_urls)}\n"""
+        f_m3u.write(m3u_header)
+        f_m3u_ipv6.write(m3u_header)
 
-        with open("live.txt", "w", encoding="utf-8") as f_txt:
-            for group in config.announcements:
-                f_txt.write(f"{group['channel']},#genre#\n")
-                for announcement in group['entries']:
-                    f_m3u.write(f"""#EXTINF:-1 tvg-id="1" tvg-name="{announcement['name']}" tvg-logo="{announcement['logo']}" group-title="{group['channel']}",{announcement['name']}\n""")
-                    f_m3u.write(f"{announcement['url']}\n")
-                    f_txt.write(f"{announcement['name']},{announcement['url']}\n")
+        for group in config.announcements:
+            f_txt.write(f"{group['channel']},#genre#\n")
+            f_txt_ipv6.write(f"{group['channel']},#genre#\n")
+            for announcement in group['entries']:
+                announcement_line = f"""#EXTINF:-1 tvg-id="1" tvg-name="{announcement['name']}" tvg-logo="{announcement['logo']}" group-title="{group['channel']}",{announcement['name']}\n"""
+                f_m3u.write(announcement_line)
+                f_m3u.write(f"{announcement['url']}\n")
+                f_m3u_ipv6.write(announcement_line)
+                f_m3u_ipv6.write(f"{announcement['url']}\n")
+                f_txt.write(f"{announcement['name']},{announcement['url']}\n")
+                f_txt_ipv6.write(f"{announcement['name']},{announcement['url']}\n")
 
-            for category, channel_list in template_channels.items():
-                f_txt.write(f"{category},#genre#\n")
-                if category in channels:
-                    for channel_name in channel_list:
-                        if channel_name in channels[category]:
-                            sorted_urls = sorted(channels[category][channel_name], key=lambda url: not is_ipv6(url) if config.ip_version_priority == "ipv6" else is_ipv6(url))
-                            filtered_urls = []
-                            for url in sorted_urls:
-                                if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist):
-                                    filtered_urls.append(url)
-                                    written_urls.add(url)
-                            
-                            if len(filtered_urls) > 1:
-                                filtered_urls = filtered_urls[:10]
-
-                            total_urls = len(filtered_urls)
-                            for index, url in enumerate(filtered_urls, start=1):
-                                if is_ipv6(url):
-                                    url_suffix = f"$LR•IPV6" if total_urls == 1 else f"$LR•IPV6『线路{index}』"
-                                else:
-                                    url_suffix = f"$LR•IPV4" if total_urls == 1 else f"$LR•IPV4『线路{index}』"
-                                if '$' in url:
-                                    base_url = url.split('$', 1)[0]
-                                else:
-                                    base_url = url
-
-                                new_url = f"{base_url}{url_suffix}"
-
-                                f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
+        for category, channel_list in template_channels.items():
+            f_txt.write(f"{category},#genre#\n")
+            f_txt_ipv6.write(f"{category},#genre#\n")
+            
+            if category in channels:
+                for channel_name in channel_list:
+                    if channel_name in channels[category]:
+                        urls = channels[category][channel_name]
+                        
+                        ipv4_urls = [url for url in urls if not is_ipv6(url)]
+                        ipv6_urls = [url for url in urls if is_ipv6(url)]
+                        
+                        if ipv4_urls and ipv4_urls[0] not in written_urls:
+                            url = ipv4_urls[0]
+                            if not any(blacklist in url for blacklist in config.url_blacklist):
+                                written_urls.add(url)
+                                new_url = f"{url}$LR•IPV4"
+                                
+                                f_m3u.write(f"#EXTINF:-1 tvg-id=\"1\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
                                 f_m3u.write(new_url + "\n")
                                 f_txt.write(f"{channel_name},{new_url}\n")
+                        
+                        if ipv6_urls and ipv6_urls[0] not in written_urls_ipv6:
+                            url = ipv6_urls[0]
+                            if not any(blacklist in url for blacklist in config.url_blacklist):
+                                written_urls_ipv6.add(url)
+                                new_url = f"{url}$LR•IPV6"
+                                
+                                f_m3u_ipv6.write(f"#EXTINF:-1 tvg-id=\"1\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
+                                f_m3u_ipv6.write(new_url + "\n")
+                                f_txt_ipv6.write(f"{channel_name},{new_url}\n")
 
-            f_txt.write("\n")
+        f_txt.write("\n")
+        f_txt_ipv6.write("\n")
 
 def process_channel_links(channel_links):
     def check_link_quality(link):
