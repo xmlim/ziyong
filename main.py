@@ -7,6 +7,10 @@ import config
 import time
 import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor
+import aiohttp
+import asyncio
+from aiohttp import ClientTimeout
+from functools import partial
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler("function.log", "w", encoding="utf-8"), logging.StreamHandler()])
 
@@ -175,39 +179,43 @@ def updateChannelUrlsM3U(channels, template_channels):
         f_txt.write("\n")
         f_txt_ipv6.write("\n")
 
-def process_channel_links(channel_links):
-    def check_link_quality(link):
-        try:
-            start_time = time.time()
-            response = requests.head(link, timeout=5)
+async def check_link_quality(session, link):
+    timeout = ClientTimeout(total=2)  # 设置2秒超时
+    try:
+        start_time = time.time()
+        async with session.head(link, timeout=timeout, allow_redirects=True) as response:
             response_time = time.time() - start_time
-            
-            if response.status_code == 200:
+            if response.status == 200:
                 return response_time
             return float('inf')
-        except:
-            return float('inf')
-    
+    except:
+        return float('inf')
+
+async def check_links_batch(urls):
+    conn = aiohttp.TCPConnector(limit=100)  # 允许100个并发连接
+    timeout = ClientTimeout(total=2)
+    async with aiohttp.ClientSession(connector=conn, timeout=timeout) as session:
+        tasks = [check_link_quality(session, url) for url in urls]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        return results
+
+def process_channel_links(channel_links):
     sorted_channels = {}
-    with ThreadPoolExecutor(max_workers=20) as executor:
-        for category, channel_dict in channel_links.items():
-            sorted_channels[category] = OrderedDict()
-            
-            for channel_name, urls in channel_dict.items():
-                future_to_url = {executor.submit(check_link_quality, url): url for url in urls}
+    
+    for category, channel_dict in channel_links.items():
+        sorted_channels[category] = OrderedDict()
+        
+        for channel_name, urls in channel_dict.items():
+            if urls:
+                # 运行异步检查
+                results = asyncio.run(check_links_batch(urls))
                 
-                url_qualities = []
-                for future in concurrent.futures.as_completed(future_to_url):
-                    url = future_to_url[future]
-                    try:
-                        quality = future.result()
-                        url_qualities.append((url, quality))
-                    except Exception as e:
-                        logging.error(f"检查链接质量时出错: {url}, 错误: {e}")
-                        url_qualities.append((url, float('inf')))
-                
-                sorted_urls = [url for url, _ in sorted(url_qualities, key=lambda x: x[1])]
+                # 将结果和URL配对并排序
+                url_qualities = list(zip(urls, results))
+                sorted_urls = [url for url, _ in sorted(url_qualities, key=lambda x: float('inf') if isinstance(x[1], Exception) else x[1])]
                 sorted_channels[category][channel_name] = sorted_urls
+            else:
+                sorted_channels[category][channel_name] = []
     
     return sorted_channels
 
