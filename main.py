@@ -4,6 +4,9 @@ import logging
 from collections import OrderedDict
 from datetime import datetime
 import config
+import time
+import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler("function.log", "w", encoding="utf-8"), logging.StreamHandler()])
 
@@ -160,7 +163,44 @@ def updateChannelUrlsM3U(channels, template_channels):
 
             f_txt.write("\n")
 
+def process_channel_links(channel_links):
+    def check_link_quality(link):
+        try:
+            start_time = time.time()
+            response = requests.head(link, timeout=5)
+            response_time = time.time() - start_time
+            
+            if response.status_code == 200:
+                return response_time
+            return float('inf')
+        except:
+            return float('inf')
+    
+    sorted_channels = {}
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        for category, channel_dict in channel_links.items():
+            sorted_channels[category] = OrderedDict()
+            
+            for channel_name, urls in channel_dict.items():
+                future_to_url = {executor.submit(check_link_quality, url): url for url in urls}
+                
+                url_qualities = []
+                for future in concurrent.futures.as_completed(future_to_url):
+                    url = future_to_url[future]
+                    try:
+                        quality = future.result()
+                        url_qualities.append((url, quality))
+                    except Exception as e:
+                        logging.error(f"检查链接质量时出错: {url}, 错误: {e}")
+                        url_qualities.append((url, float('inf')))
+                
+                sorted_urls = [url for url, _ in sorted(url_qualities, key=lambda x: x[1])]
+                sorted_channels[category][channel_name] = sorted_urls
+    
+    return sorted_channels
+
 if __name__ == "__main__":
     template_file = "demo.txt"
     channels, template_channels = filter_source_urls(template_file)
-    updateChannelUrlsM3U(channels, template_channels)
+    sorted_channels = process_channel_links(channels)
+    updateChannelUrlsM3U(sorted_channels, template_channels)
