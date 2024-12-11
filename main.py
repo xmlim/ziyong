@@ -149,26 +149,26 @@ def updateChannelUrlsM3U(channels, template_channels):
                     if channel_name in channels[category]:
                         urls = channels[category][channel_name]
                         
-                        ipv4_urls = [url for url in urls if not is_ipv6(url)]
-                        ipv6_urls = [url for url in urls if is_ipv6(url)]
+                        ipv4_urls = [url for url in urls if not is_ipv6(url) and not any(blacklist in url for blacklist in config.url_blacklist)]
+                        ipv6_urls = [url for url in urls if is_ipv6(url) and not any(blacklist in url for blacklist in config.url_blacklist)]
                         
-                        if ipv4_urls and ipv4_urls[0] not in written_urls:
-                            url = ipv4_urls[0]
-                            if not any(blacklist in url for blacklist in config.url_blacklist):
+                        for index, url in enumerate(ipv4_urls[:10], start=1):
+                            if url not in written_urls:
                                 written_urls.add(url)
-                                new_url = f"{url}$LR•IPV4"
+                                url_suffix = f"$LR•IPV4" if len(ipv4_urls) == 1 else f"$LR•IPV4『线路{index}』"
+                                new_url = f"{url}{url_suffix}"
                                 
-                                f_m3u.write(f"#EXTINF:-1 tvg-id=\"1\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
+                                f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
                                 f_m3u.write(new_url + "\n")
                                 f_txt.write(f"{channel_name},{new_url}\n")
                         
-                        if ipv6_urls and ipv6_urls[0] not in written_urls_ipv6:
-                            url = ipv6_urls[0]
-                            if not any(blacklist in url for blacklist in config.url_blacklist):
+                        for index, url in enumerate(ipv6_urls[:10], start=1):
+                            if url not in written_urls_ipv6:
                                 written_urls_ipv6.add(url)
-                                new_url = f"{url}$LR•IPV6"
+                                url_suffix = f"$LR•IPV6" if len(ipv6_urls) == 1 else f"$LR•IPV6『线路{index}』"
+                                new_url = f"{url}{url_suffix}"
                                 
-                                f_m3u_ipv6.write(f"#EXTINF:-1 tvg-id=\"1\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
+                                f_m3u_ipv6.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
                                 f_m3u_ipv6.write(new_url + "\n")
                                 f_txt_ipv6.write(f"{channel_name},{new_url}\n")
 
