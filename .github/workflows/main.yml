@@ -1,4 +1,4 @@
-name: Daily Update
+name: auto-update
 
 on:
   schedule:
@@ -6,46 +6,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  run_script:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # 添加写入权限
-      
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3  # 更新到 v3 版本
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}  # 使用默认的 GITHUB_TOKEN
-        
+    - uses: actions/checkout@v2
     - name: Set up Python
-      uses: actions/setup-python@v4  # 更新到 v4 版本
+      uses: actions/setup-python@v2
       with:
-        python-version: '3.10'
-        
-    - name: Cache dependencies
-      uses: actions/cache@v3  # 更新到 v3 版本
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-          
+        python-version: '3.x'
+    
     - name: Install dependencies
       run: |
-        pip install requests
-        
-    - name: Run Python script
-      run: python main.py
-      
-    - name: Commit and push if changed
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run update script
       run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add -A
-        if ! git diff --staged --quiet; then
-          git commit -m "Auto-update live files"
-          git push
-        fi
+        python main.py
         
-    env:
-      TZ: Asia/Shanghai
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "auto update" -a || echo "no changes"
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
