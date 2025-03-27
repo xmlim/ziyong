@@ -1,56 +1,49 @@
 name: Daily Update
+
 on:
   schedule:
     - cron: '45 21 * * *'
-      timezone: Asia/Shanghai
   workflow_dispatch:
-    inputs: {}
-    branches: [main]
+    branches:
+      - main
+
 jobs:
   run_script:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Create and activate virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/pip
-            venv
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-      - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            echo "requirements.txt not found. Skipping dependency installation."
-          fi
-      - name: Run Python script
-        run: |
-          python main.py || { echo "Python script execution failed."; exit 1; }
-      - name: Commit and push if changed
-        run: |
-          git fetch origin main
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          # 根据实际项目结构灵活调整跟踪目录
-          git add data/
-          if ! git diff --staged --quiet; then
-            git commit -m "Auto-update live files"
-            git push origin main
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      env:
-        TZ: Asia/Shanghai
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+
+    - name: Run Python script
+      run: python main.py
+
+    - name: Commit and push if changed
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add -A
+        if ! git diff --staged --quiet; then
+          git commit -m "Auto-update live files"
+          git push
+        fi
+
+    env:
+      TZ: Asia/Shanghai
