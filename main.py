@@ -3,17 +3,11 @@ import requests
 import logging
 from collections import OrderedDict
 from datetime import datetime
+import config
 
-
-# 配置日志记录
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s',
-                    handlers=[logging.FileHandler("function.log", "w", encoding="utf-8"), logging.StreamHandler()])
-
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler("function.log", "w", encoding="utf-8"), logging.StreamHandler()])
 
 def parse_template(template_file):
-    """
-    解析模板文件，获取频道分类和频道名称
-    """
     template_channels = OrderedDict()
     current_category = None
 
@@ -30,11 +24,7 @@ def parse_template(template_file):
 
     return template_channels
 
-
 def fetch_channels(url):
-    """
-    从给定的 URL 获取频道信息，支持 m3u 和 txt 格式
-    """
     channels = OrderedDict()
 
     try:
@@ -83,11 +73,7 @@ def fetch_channels(url):
 
     return channels
 
-
 def match_channels(template_channels, all_channels):
-    """
-    将模板中的频道与从 URL 获取的所有频道进行匹配
-    """
     matched_channels = OrderedDict()
 
     for category, channel_list in template_channels.items():
@@ -100,11 +86,7 @@ def match_channels(template_channels, all_channels):
 
     return matched_channels
 
-
 def filter_source_urls(template_file):
-    """
-    解析模板文件，获取所有源 URL 的频道信息并进行匹配
-    """
     template_channels = parse_template(template_file)
     source_urls = config.source_urls
 
@@ -121,52 +103,28 @@ def filter_source_urls(template_file):
 
     return matched_channels, template_channels
 
-
 def is_ipv6(url):
-    """
-    判断 URL 是否为 IPv6 格式
-    """
     return re.match(r'^http:\/\/\[[0-9a-fA-F:]+\]', url) is not None
 
+def updateChannelUrlsM3U(channels, template_channels):
+    written_urls = set()
 
-def write_announcements_to_files(f_m3u, f_txt):
-    """
-    将公告信息写入到 live.m3u 和 live.txt 文件中
-    """
     current_date = datetime.now().strftime("%Y-%m-%d")
     for group in config.announcements:
-        f_txt.write(f"{group['channel']},#genre#\n")
         for announcement in group['entries']:
             if announcement['name'] is None:
                 announcement['name'] = current_date
-            f_m3u.write(f"""#EXTINF:-1 tvg-id="1" tvg-name="{announcement['name']}" tvg-logo="{announcement['logo']}" group-title="{group['channel']}",{announcement['name']}\n""")
-            f_m3u.write(f"{announcement['url']}\n")
-            f_txt.write(f"{announcement['name']},{announcement['url']}\n")
-
-
-def is_url_valid(url):
-    """
-    检查 URL 是否有效（尝试发送 HEAD 请求）
-    """
-    try:
-        response = requests.head(url, timeout=5)
-        return response.status_code < 200
-    except:
-        return False
-
-
-def updateChannelUrlsM3U(channels, template_channels):
-    """
-    更新频道 URL 并写入到 live.m3u 和 live.txt 文件中
-    """
-    written_urls = set()
 
     with open("live.m3u", "w", encoding="utf-8") as f_m3u:
         f_m3u.write(f"""#EXTM3U x-tvg-url={",".join(f'"{epg_url}"' for epg_url in config.epg_urls)}\n""")
 
         with open("live.txt", "w", encoding="utf-8") as f_txt:
-            # 写入公告信息
-            write_announcements_to_files(f_m3u, f_txt)
+            for group in config.announcements:
+                f_txt.write(f"{group['channel']},#genre#\n")
+                for announcement in group['entries']:
+                    f_m3u.write(f"""#EXTINF:-1 tvg-id="1" tvg-name="{announcement['name']}" tvg-logo="{announcement['logo']}" group-title="{group['channel']}",{announcement['name']}\n""")
+                    f_m3u.write(f"{announcement['url']}\n")
+                    f_txt.write(f"{announcement['name']},{announcement['url']}\n")
 
             for category, channel_list in template_channels.items():
                 f_txt.write(f"{category},#genre#\n")
@@ -174,24 +132,30 @@ def updateChannelUrlsM3U(channels, template_channels):
                     for channel_name in channel_list:
                         if channel_name in channels[category]:
                             sorted_urls = sorted(channels[category][channel_name], key=lambda url: not is_ipv6(url) if config.ip_version_priority == "ipv6" else is_ipv6(url))
-                            filtered_urls = [url for url in sorted_urls if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist)]
-                            total_urls = len(filtered_urls)
-                            for index, url in enumerate(filtered_urls, start=1):
-                                if is_url_valid(url):
-                                    # 简化后缀处理逻辑
-                                    suffix = f"$LR•IPV6" if is_ipv6(url) else f"$LR•IPV4"
-                                    if total_urls > 1:
-                                        suffix += f"『线路{index}』"
-                                    base_url = url.split('$', 1)[0] if '$' in url else url
-                                    new_url = f"{base_url}{suffix}"
-
-                                    f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
-                                    f_m3u.write(new_url + "\n")
-                                    f_txt.write(f"{channel_name},{new_url}\n")
+                            filtered_urls = []
+                            for url in sorted_urls:
+                                if url and url not in written_urls and not any(blacklist in url for blacklist in config.url_blacklist):
+                                    filtered_urls.append(url)
                                     written_urls.add(url)
 
-            f_txt.write("\n")
+                            total_urls = len(filtered_urls)
+                            for index, url in enumerate(filtered_urls, start=1):
+                                if is_ipv6(url):
+                                    url_suffix = f"$LR•IPV6" if total_urls == 1 else f"$LR•IPV6『线路{index}』"
+                                else:
+                                    url_suffix = f"$LR•IPV4" if total_urls == 1 else f"$LR•IPV4『线路{index}』"
+                                if '$' in url:
+                                    base_url = url.split('$', 1)[0]
+                                else:
+                                    base_url = url
 
+                                new_url = f"{base_url}{url_suffix}"
+
+                                f_m3u.write(f"#EXTINF:-1 tvg-id=\"{index}\" tvg-name=\"{channel_name}\" tvg-logo=\"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png\" group-title=\"{category}\",{channel_name}\n")
+                                f_m3u.write(new_url + "\n")
+                                f_txt.write(f"{channel_name},{new_url}\n")
+
+            f_txt.write("\n")
 
 if __name__ == "__main__":
     template_file = "demo.txt"
