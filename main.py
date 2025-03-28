@@ -5,7 +5,10 @@ from collections import OrderedDict
 from datetime import datetime
 import config
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[logging.FileHandler("function.log", "w", encoding="utf-8"), logging.StreamHandler()])
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', handlers=[
+    logging.FileHandler("function.log", "w", encoding="utf-8"), logging.StreamHandler()])
+
 
 def parse_template(template_file):
     template_channels = OrderedDict()
@@ -23,6 +26,15 @@ def parse_template(template_file):
                     template_channels[current_category].append(channel_name)
 
     return template_channels
+
+
+def is_valid_url(url):
+    try:
+        response = requests.head(url, timeout=5)
+        return response.status_code < 280
+    except requests.RequestException:
+        return False
+
 
 def fetch_channels(url):
     channels = OrderedDict()
@@ -49,7 +61,7 @@ def fetch_channels(url):
                             channels[current_category] = []
                 elif line and not line.startswith("#"):
                     channel_url = line.strip()
-                    if current_category and channel_name:
+                    if current_category and channel_name and is_valid_url(channel_url):
                         channels[current_category].append((channel_name, channel_url))
         else:
             for line in lines:
@@ -62,8 +74,9 @@ def fetch_channels(url):
                     if match:
                         channel_name = match.group(1).strip()
                         channel_url = match.group(2).strip()
-                        channels[current_category].append((channel_name, channel_url))
-                    elif line:
+                        if is_valid_url(channel_url):
+                            channels[current_category].append((channel_name, channel_url))
+                    elif line and is_valid_url(line):
                         channels[current_category].append((line, ''))
         if channels:
             categories = ", ".join(channels.keys())
@@ -72,6 +85,7 @@ def fetch_channels(url):
         logging.error(f"url: {url} 爬取失败❌, Error: {e}")
 
     return channels
+
 
 def match_channels(template_channels, all_channels):
     matched_channels = OrderedDict()
@@ -85,6 +99,7 @@ def match_channels(template_channels, all_channels):
                         matched_channels[category].setdefault(channel_name, []).append(online_channel_url)
 
     return matched_channels
+
 
 def filter_source_urls(template_file):
     template_channels = parse_template(template_file)
@@ -103,8 +118,10 @@ def filter_source_urls(template_file):
 
     return matched_channels, template_channels
 
+
 def is_ipv6(url):
     return re.match(r'^http:\/\/\[[0-9a-fA-F:]+\]', url) is not None
+
 
 def updateChannelUrlsM3U(channels, template_channels):
     written_urls = set()
@@ -156,6 +173,7 @@ def updateChannelUrlsM3U(channels, template_channels):
                                 f_txt.write(f"{channel_name},{new_url}\n")
 
             f_txt.write("\n")
+
 
 if __name__ == "__main__":
     template_file = "demo.txt"
