@@ -1,7 +1,7 @@
-ip_version_priority = "ipv4"
+ip_version_priority = "ipv6"
 
 source_urls = [
-    "https://live.hacks.tools/tv/iptv4.txt",
+    "https://live.hacks.tools/tv/iptv6.txt",
     "http://aktv.top/live.txt",
     "https://live.fanmingming.com/tv/m3u/ipv6.m3u",
     "https://raw.githubusercontent.com/yuanzl77/IPTV/main/直播/央视频道.txt",
