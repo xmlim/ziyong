@@ -1,54 +1,54 @@
-2025-05-30 08:57:23,367 - INFO - url: https://live.hacks.tools/tv/iptv6.txt 获取成功，判断为txt格式
-2025-05-30 08:57:23,367 - INFO - url: https://live.hacks.tools/tv/iptv6.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 电影频道, 儿童频道, 地方频道, 体育频道, 更新时间
-2025-05-30 08:58:02,938 - ERROR - url: http://aktv.top/live.txt 爬取失败❌, Error: 522 Server Error:  for url: http://aktv.top/live.txt
-2025-05-30 08:58:03,124 - INFO - url: https://live.fanmingming.com/tv/m3u/ipv6.m3u 获取成功，判断为m3u格式
-2025-05-30 08:58:03,124 - INFO - url: https://live.fanmingming.com/tv/m3u/ipv6.m3u 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 浙江频道, 内蒙频道
-2025-05-30 08:58:03,242 - INFO - url: https://raw.githubusercontent.com/yuanzl77/IPTV/main/直播/央视频道.txt 获取成功，判断为txt格式
-2025-05-30 08:58:03,243 - INFO - url: https://raw.githubusercontent.com/yuanzl77/IPTV/main/直播/央视频道.txt 爬取成功✅，包含频道分类: 央视频道
-2025-05-30 09:00:18,408 - ERROR - url: http://120.79.4.185/new/mdlive.txt 爬取失败❌, Error: HTTPConnectionPool(host='120.79.4.185', port=80): Max retries exceeded with url: /new/mdlive.txt (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fe23facc370>, 'Connection to 120.79.4.185 timed out. (connect timeout=None)'))
-2025-05-30 09:00:18,465 - ERROR - url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt 爬取失败❌, Error: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt
-2025-05-30 09:00:18,547 - ERROR - url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V6.txt 爬取失败❌, Error: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V6.txt
-2025-05-30 09:00:19,761 - INFO - url: https://live.zhoujie218.top/tv/iptv6.txt 获取成功，判断为txt格式
-2025-05-30 09:00:19,761 - INFO - url: https://live.zhoujie218.top/tv/iptv6.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 电影频道, 儿童频道, 地方频道, 体育频道, 更新时间
-2025-05-30 09:00:20,996 - INFO - url: https://live.zhoujie218.top/tv/iptv4.txt 获取成功，判断为txt格式
-2025-05-30 09:00:20,999 - INFO - url: https://live.zhoujie218.top/tv/iptv4.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 电影频道, 数字频道, 儿童频道, 地方频道, 纪录频道, 体育频道, 解说频道, 音乐频道, 春晚频道, 直播中国, 更新时间
-2025-05-30 09:00:21,171 - ERROR - url: https://www.mytvsuper.xyz/m3u/Live.m3u 爬取失败❌, Error: HTTPSConnectionPool(host='www.mytvsuper.xyz', port=443): Max retries exceeded with url: /m3u/Live.m3u (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.mytvsuper.xyz'. (_ssl.c:1017)")))
-2025-05-30 09:00:22,912 - INFO - url: https://tv.youdu.fan:666/live/ 获取成功，判断为txt格式
-2025-05-30 09:00:22,930 - INFO - url: https://tv.youdu.fan:666/live/ 爬取成功✅，包含频道分类: 🌹防失联, 📡游山玩水, 央视节目, 卫视节目, IPV6央视频道, IPV6卫视频道, 央视频道, 卫视频道, 地方频道, 📡儿童频道, 📡港澳台频道, 📡历届春晚, 📡直播中国, 🌏国际频道, 💞电影频道, 💃丨MTV现代, 📛丨MTV怀旧, 📡测试
-2025-05-30 09:00:23,310 - ERROR - url: http://ww.weidonglong.com/dsj.txt 爬取失败❌, Error: HTTPConnectionPool(host='ww.weidonglong.com', port=80): Max retries exceeded with url: /dsj.txt (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7fe23facc1c0>: Failed to resolve 'ww.weidonglong.com' ([Errno -2] Name or service not known)"))
-2025-05-30 09:00:23,638 - ERROR - url: http://xhztv.top/zbc.txt 爬取失败❌, Error: 404 Client Error: Not Found for url: http://xhztv.top/zbc.txt
-2025-05-30 09:00:23,770 - INFO - url: https://raw.githubusercontent.com/qingwen07/awesome-iptv/main/tvbox_live_all.txt 获取成功，判断为txt格式
-2025-05-30 09:00:23,796 - INFO - url: https://raw.githubusercontent.com/qingwen07/awesome-iptv/main/tvbox_live_all.txt 爬取成功✅，包含频道分类: 央视, 新闻, 卫视台, 地方台, 港澳台, 埋堆堆, 影视, 体育, 音乐, 小品, 咪咕, 斗鱼, 少儿, 国外, IPV6, 
-2025-05-30 09:00:24,035 - INFO - url: https://raw.githubusercontent.com/Guovin/TV/gd/output/result.txt 获取成功，判断为txt格式
-2025-05-30 09:00:24,042 - INFO - url: https://raw.githubusercontent.com/Guovin/TV/gd/output/result.txt 爬取成功✅，包含频道分类: 🕘️更新时间, 📺央视频道, 💰央视付费频道, 📡卫视频道, ☘️广东频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️海南频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️内蒙古频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 🏛经典剧场
-2025-05-30 09:00:25,334 - INFO - url: http://home.jundie.top:81/Cat/tv/live.txt 获取成功，判断为txt格式
-2025-05-30 09:00:25,337 - INFO - url: http://home.jundie.top:81/Cat/tv/live.txt 爬取成功✅，包含频道分类: 📺央视频道, 💰央视付费频道, 📡卫视频道, ☘️广东频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 🏛经典剧场, 埋堆堆
-2025-05-30 09:00:25,432 - INFO - url: https://raw.githubusercontent.com/vbskycn/iptv/master/tv/hd.txt 获取成功，判断为txt格式
-2025-05-30 09:00:25,437 - INFO - url: https://raw.githubusercontent.com/vbskycn/iptv/master/tv/hd.txt 爬取成功✅，包含频道分类: 央视频道jyd, 港澳台jyd, 卫视频道jyd, 江西本地jyd, 儿童频道jyd, 电影频道jyd, 其他频道jyd, 央视频道jdx, 江西本地jdx, 卫视频道jdx, 电影频道jdx, 体育频道jdx, 儿童频道jdx, 特色频道jdx, 其他频道jdx, 央视频道ip6, 卫视频道ip6, 电影频道ip6, 儿童频道ip6, 地方频道ip6, 体育频道ip6, 更新时间ip6, 央视频道ip4, 卫视频道ip4, 电影频道ip4, 数字频道ip4, 儿童频道ip4, 地方频道ip4, 纪录频道ip4, 体育频道ip4, 解说频道ip4, 音乐频道ip4, 春晚频道ip4, 直播中国ip4, 更新时间ip4
-2025-05-30 09:00:25,608 - INFO - url: https://cdn.jsdelivr.net/gh/YueChan/live@main/IPTV.m3u 获取成功，判断为m3u格式
-2025-05-30 09:00:25,609 - INFO - url: https://cdn.jsdelivr.net/gh/YueChan/live@main/IPTV.m3u 爬取成功✅，包含频道分类: 央视, 卫视, 地方, 数字
-2025-05-30 09:00:25,774 - INFO - url: https://raw.githubusercontent.com/cymz6/AutoIPTV-Hotel/main/lives.txt 获取成功，判断为txt格式
-2025-05-30 09:00:25,775 - INFO - url: https://raw.githubusercontent.com/cymz6/AutoIPTV-Hotel/main/lives.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 其他频道
-2025-05-30 09:00:25,894 - INFO - url: https://raw.githubusercontent.com/PizazzGY/TVBox_warehouse/main/live.txt 获取成功，判断为txt格式
-2025-05-30 09:00:25,894 - INFO - url: https://raw.githubusercontent.com/PizazzGY/TVBox_warehouse/main/live.txt 爬取成功✅，包含频道分类: 央视
-2025-05-30 09:00:26,843 - INFO - url: https://fm1077.serv00.net/SmartTV.m3u 获取成功，判断为m3u格式
-2025-05-30 09:00:26,844 - INFO - url: https://fm1077.serv00.net/SmartTV.m3u 爬取成功✅，包含频道分类: 臺灣 Taiwan, 馬來西亞 Malaysia, 新加坡 Singapore, 印尼 Indonesia, 香港 Hongkong, 中國 China, 體育 Sports, 印度 Indian, 電影 Movie, 紀錄 Documentary, 新聞 News, 兒童 Kids, 泰國 Thailand, 英國 United Kingdom, 越南 Vietnam, 韓國 Korea, 日本 Japan
-2025-05-30 09:00:27,032 - INFO - url: https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt 获取成功，判断为txt格式
-2025-05-30 09:00:27,033 - INFO - url: https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 其他频道
-2025-05-30 09:00:27,088 - INFO - url: https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt 获取成功，判断为txt格式
-2025-05-30 09:00:27,088 - INFO - url: https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt 爬取成功✅，包含频道分类: 更新时间
-2025-05-30 09:00:30,012 - INFO - url: https://ghp.ci/raw.githubusercontent.com/MemoryCollection/IPTV/refs/heads/main/itvlist.m3u 获取成功，判断为txt格式
-2025-05-30 09:00:30,812 - INFO - url: https://github.moeyy.xyz/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/huyayqk.m3u 获取成功，判断为m3u格式
-2025-05-30 09:00:30,814 - INFO - url: https://github.moeyy.xyz/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/huyayqk.m3u 爬取成功✅，包含频道分类: 一起看, 原创, 科技
-2025-05-30 09:00:31,770 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 获取成功，判断为txt格式
-2025-05-30 09:00:31,773 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 爬取成功✅，包含频道分类: 央卫频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️海南频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️内蒙古频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 历届春晚
-2025-05-30 09:00:33,808 - INFO - url: http://live.nctv.top/x.txt 获取成功，判断为txt格式
-2025-05-30 09:00:33,847 - INFO - url: http://live.nctv.top/x.txt 爬取成功✅，包含频道分类: 📡  更新日期, 📡  央视频道, 📡  卫视频道, 📡  江西频道, 📡  移动央视, 📡  移动卫视, 📡  港台频道, 📡  动作频道, 📡  科幻频道, 📡  恐怖频道, 📡  战争频道, 📡  上海频道, 📡  北京频道, 📡  广东频道, 📡  湖南频道, 📡  浙江频道, 📡  江苏频道, 📡  安徽频道, 📡  陕西频道, 📡  福建频道, 📡  河南频道, 📡  河北频道, 📡  湖北频道, 📡  四川频道, 📡  重庆频道, 📡  山东频道, 📡  内蒙频道, 📡  贵州频道, 📡  辽宁频道, 📡  黑龙江频道, 📡  国际, 🇭🇰港台, 🇨🇳虎牙直播, 🇨🇳斗鱼直播, 🇨🇳咪咕频道, 🇨🇳轮播, 🇨🇳电视剧轮播, 🇨🇳 YY频道, 🇨🇳埋堆堆（港剧）, 🇨🇳数字电视, 🇨🇳历年春晚, 🇨🇳直播中国, 💫 经典电影, 💫 西游记, 💫 经典小品, 💫电台广播, 💫 广场舞, 💫歌星金曲, 💫MTV, 💫DJ音乐, 💫演唱会
-2025-05-30 09:00:34,595 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 获取成功，判断为txt格式
-2025-05-30 09:00:34,597 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 爬取成功✅，包含频道分类: 央卫频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️海南频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️内蒙古频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 历届春晚
-2025-05-30 09:00:34,845 - ERROR - url: https://tv.iill.top/m3u/Live 爬取失败❌, Error: 403 Client Error: Forbidden for url: https://tv.iill.top/m3u/Live
-2025-05-30 09:00:40,190 - ERROR - url: http://tipu.xjqxz.top/live1213.txt 爬取失败❌, Error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-2025-05-30 09:00:50,516 - ERROR - Future exception was never retrieved
+2025-05-30 14:17:03,510 - INFO - url: https://live.hacks.tools/tv/iptv6.txt 获取成功，判断为txt格式
+2025-05-30 14:17:03,511 - INFO - url: https://live.hacks.tools/tv/iptv6.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 电影频道, 儿童频道, 地方频道, 体育频道, 更新时间
+2025-05-30 14:17:42,464 - ERROR - url: http://aktv.top/live.txt 爬取失败❌, Error: 522 Server Error:  for url: http://aktv.top/live.txt
+2025-05-30 14:17:42,712 - INFO - url: https://live.fanmingming.com/tv/m3u/ipv6.m3u 获取成功，判断为m3u格式
+2025-05-30 14:17:42,713 - INFO - url: https://live.fanmingming.com/tv/m3u/ipv6.m3u 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 浙江频道, 内蒙频道
+2025-05-30 14:17:42,901 - INFO - url: https://raw.githubusercontent.com/yuanzl77/IPTV/main/直播/央视频道.txt 获取成功，判断为txt格式
+2025-05-30 14:17:42,902 - INFO - url: https://raw.githubusercontent.com/yuanzl77/IPTV/main/直播/央视频道.txt 爬取成功✅，包含频道分类: 央视频道
+2025-05-30 14:19:59,214 - ERROR - url: http://120.79.4.185/new/mdlive.txt 爬取失败❌, Error: HTTPConnectionPool(host='120.79.4.185', port=80): Max retries exceeded with url: /new/mdlive.txt (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f148e6b0910>, 'Connection to 120.79.4.185 timed out. (connect timeout=None)'))
+2025-05-30 14:19:59,373 - ERROR - url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt 爬取失败❌, Error: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V4.txt
+2025-05-30 14:19:59,519 - ERROR - url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V6.txt 爬取失败❌, Error: 404 Client Error: Not Found for url: https://raw.githubusercontent.com/Fairy8o/IPTV/main/PDX-V6.txt
+2025-05-30 14:20:00,821 - INFO - url: https://live.zhoujie218.top/tv/iptv6.txt 获取成功，判断为txt格式
+2025-05-30 14:20:00,822 - INFO - url: https://live.zhoujie218.top/tv/iptv6.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 电影频道, 儿童频道, 地方频道, 体育频道, 更新时间
+2025-05-30 14:20:02,139 - INFO - url: https://live.zhoujie218.top/tv/iptv4.txt 获取成功，判断为txt格式
+2025-05-30 14:20:02,142 - INFO - url: https://live.zhoujie218.top/tv/iptv4.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 电影频道, 数字频道, 儿童频道, 地方频道, 纪录频道, 体育频道, 解说频道, 音乐频道, 春晚频道, 直播中国, 更新时间
+2025-05-30 14:20:02,274 - ERROR - url: https://www.mytvsuper.xyz/m3u/Live.m3u 爬取失败❌, Error: HTTPSConnectionPool(host='www.mytvsuper.xyz', port=443): Max retries exceeded with url: /m3u/Live.m3u (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.mytvsuper.xyz'. (_ssl.c:1017)")))
+2025-05-30 14:20:04,384 - INFO - url: https://tv.youdu.fan:666/live/ 获取成功，判断为txt格式
+2025-05-30 14:20:04,403 - INFO - url: https://tv.youdu.fan:666/live/ 爬取成功✅，包含频道分类: 🌹防失联, 📡游山玩水, 央视节目, 卫视节目, IPV6央视频道, IPV6卫视频道, 央视频道, 卫视频道, 地方频道, 📡儿童频道, 📡港澳台频道, 📡历届春晚, 📡直播中国, 🌏国际频道, 💞电影频道, 💃丨MTV现代, 📛丨MTV怀旧, 📡测试
+2025-05-30 14:20:05,364 - ERROR - url: http://ww.weidonglong.com/dsj.txt 爬取失败❌, Error: HTTPConnectionPool(host='ww.weidonglong.com', port=80): Max retries exceeded with url: /dsj.txt (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f148e6b0ac0>: Failed to resolve 'ww.weidonglong.com' ([Errno -2] Name or service not known)"))
+2025-05-30 14:20:05,584 - ERROR - url: http://xhztv.top/zbc.txt 爬取失败❌, Error: 404 Client Error: Not Found for url: http://xhztv.top/zbc.txt
+2025-05-30 14:20:05,829 - INFO - url: https://raw.githubusercontent.com/qingwen07/awesome-iptv/main/tvbox_live_all.txt 获取成功，判断为txt格式
+2025-05-30 14:20:05,850 - INFO - url: https://raw.githubusercontent.com/qingwen07/awesome-iptv/main/tvbox_live_all.txt 爬取成功✅，包含频道分类: 央视, 新闻, 卫视台, 地方台, 港澳台, 埋堆堆, 影视, 体育, 音乐, 小品, 咪咕, 斗鱼, 少儿, 国外, IPV6, 
+2025-05-30 14:20:06,093 - INFO - url: https://raw.githubusercontent.com/Guovin/TV/gd/output/result.txt 获取成功，判断为txt格式
+2025-05-30 14:20:06,099 - INFO - url: https://raw.githubusercontent.com/Guovin/TV/gd/output/result.txt 爬取成功✅，包含频道分类: 🕘️更新时间, 📺央视频道, 💰央视付费频道, 📡卫视频道, ☘️广东频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️海南频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️内蒙古频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 🏛经典剧场
+2025-05-30 14:20:07,390 - INFO - url: http://home.jundie.top:81/Cat/tv/live.txt 获取成功，判断为txt格式
+2025-05-30 14:20:07,393 - INFO - url: http://home.jundie.top:81/Cat/tv/live.txt 爬取成功✅，包含频道分类: 📺央视频道, 💰央视付费频道, 📡卫视频道, ☘️广东频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 🏛经典剧场, 埋堆堆
+2025-05-30 14:20:07,581 - INFO - url: https://raw.githubusercontent.com/vbskycn/iptv/master/tv/hd.txt 获取成功，判断为txt格式
+2025-05-30 14:20:07,586 - INFO - url: https://raw.githubusercontent.com/vbskycn/iptv/master/tv/hd.txt 爬取成功✅，包含频道分类: 央视频道jyd, 港澳台jyd, 卫视频道jyd, 江西本地jyd, 儿童频道jyd, 电影频道jyd, 其他频道jyd, 央视频道jdx, 江西本地jdx, 卫视频道jdx, 电影频道jdx, 体育频道jdx, 儿童频道jdx, 特色频道jdx, 其他频道jdx, 央视频道ip6, 卫视频道ip6, 电影频道ip6, 儿童频道ip6, 地方频道ip6, 体育频道ip6, 更新时间ip6, 央视频道ip4, 卫视频道ip4, 电影频道ip4, 数字频道ip4, 儿童频道ip4, 地方频道ip4, 纪录频道ip4, 体育频道ip4, 解说频道ip4, 音乐频道ip4, 春晚频道ip4, 直播中国ip4, 更新时间ip4
+2025-05-30 14:20:07,676 - INFO - url: https://cdn.jsdelivr.net/gh/YueChan/live@main/IPTV.m3u 获取成功，判断为m3u格式
+2025-05-30 14:20:07,677 - INFO - url: https://cdn.jsdelivr.net/gh/YueChan/live@main/IPTV.m3u 爬取成功✅，包含频道分类: 央视, 卫视, 地方, 数字
+2025-05-30 14:20:07,880 - INFO - url: https://raw.githubusercontent.com/cymz6/AutoIPTV-Hotel/main/lives.txt 获取成功，判断为txt格式
+2025-05-30 14:20:07,880 - INFO - url: https://raw.githubusercontent.com/cymz6/AutoIPTV-Hotel/main/lives.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 其他频道
+2025-05-30 14:20:08,080 - INFO - url: https://raw.githubusercontent.com/PizazzGY/TVBox_warehouse/main/live.txt 获取成功，判断为txt格式
+2025-05-30 14:20:08,081 - INFO - url: https://raw.githubusercontent.com/PizazzGY/TVBox_warehouse/main/live.txt 爬取成功✅，包含频道分类: 央视
+2025-05-30 14:20:09,177 - INFO - url: https://fm1077.serv00.net/SmartTV.m3u 获取成功，判断为m3u格式
+2025-05-30 14:20:09,178 - INFO - url: https://fm1077.serv00.net/SmartTV.m3u 爬取成功✅，包含频道分类: 臺灣 Taiwan, 馬來西亞 Malaysia, 新加坡 Singapore, 印尼 Indonesia, 香港 Hongkong, 中國 China, 體育 Sports, 印度 Indian, 電影 Movie, 紀錄 Documentary, 新聞 News, 兒童 Kids, 泰國 Thailand, 英國 United Kingdom, 越南 Vietnam, 韓國 Korea, 日本 Japan
+2025-05-30 14:20:09,377 - INFO - url: https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt 获取成功，判断为txt格式
+2025-05-30 14:20:09,378 - INFO - url: https://raw.githubusercontent.com/ssili126/tv/main/itvlist.txt 爬取成功✅，包含频道分类: 央视频道, 卫视频道, 其他频道
+2025-05-30 14:20:09,547 - INFO - url: https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt 获取成功，判断为txt格式
+2025-05-30 14:20:09,547 - INFO - url: https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/merged_output.txt 爬取成功✅，包含频道分类: 更新时间
+2025-05-30 14:20:12,476 - INFO - url: https://ghp.ci/raw.githubusercontent.com/MemoryCollection/IPTV/refs/heads/main/itvlist.m3u 获取成功，判断为txt格式
+2025-05-30 14:20:13,326 - INFO - url: https://github.moeyy.xyz/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/huyayqk.m3u 获取成功，判断为m3u格式
+2025-05-30 14:20:13,327 - INFO - url: https://github.moeyy.xyz/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/huyayqk.m3u 爬取成功✅，包含频道分类: 一起看, 原创, 科技
+2025-05-30 14:20:14,057 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 获取成功，判断为txt格式
+2025-05-30 14:20:14,059 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 爬取成功✅，包含频道分类: 央卫频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️海南频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️内蒙古频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 历届春晚
+2025-05-30 14:20:15,600 - INFO - url: http://live.nctv.top/x.txt 获取成功，判断为txt格式
+2025-05-30 14:20:15,640 - INFO - url: http://live.nctv.top/x.txt 爬取成功✅，包含频道分类: 📡  更新日期, 📡  央视频道, 📡  卫视频道, 📡  江西频道, 📡  移动央视, 📡  移动卫视, 📡  港台频道, 📡  动作频道, 📡  科幻频道, 📡  恐怖频道, 📡  战争频道, 📡  上海频道, 📡  北京频道, 📡  广东频道, 📡  湖南频道, 📡  浙江频道, 📡  江苏频道, 📡  安徽频道, 📡  陕西频道, 📡  福建频道, 📡  河南频道, 📡  河北频道, 📡  湖北频道, 📡  四川频道, 📡  重庆频道, 📡  山东频道, 📡  内蒙频道, 📡  贵州频道, 📡  辽宁频道, 📡  黑龙江频道, 📡  国际, 🇭🇰港台, 🇨🇳虎牙直播, 🇨🇳斗鱼直播, 🇨🇳咪咕频道, 🇨🇳轮播, 🇨🇳电视剧轮播, 🇨🇳 YY频道, 🇨🇳埋堆堆（港剧）, 🇨🇳数字电视, 🇨🇳历年春晚, 🇨🇳直播中国, 💫 经典电影, 💫 西游记, 💫 经典小品, 💫电台广播, 💫 广场舞, 💫歌星金曲, 💫MTV, 💫DJ音乐, 💫演唱会
+2025-05-30 14:20:16,065 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 获取成功，判断为txt格式
+2025-05-30 14:20:16,067 - INFO - url: http://www.lyyytv.cn/yt/zhibo/1.txt 爬取成功✅，包含频道分类: 央卫频道, ☘️浙江频道, ☘️北京频道, ☘️上海频道, ☘️重庆频道, ☘️江苏频道, ☘️辽宁频道, ☘️湖南频道, ☘️湖北频道, ☘️广西频道, ☘️天津频道, ☘️四川频道, ☘️陕西频道, ☘️福建频道, ☘️海南频道, ☘️河南频道, ☘️河北频道, ☘️贵州频道, ☘️甘肃频道, ☘️新疆频道, ☘️山东频道, ☘️山西频道, ☘️安徽频道, ☘️宁夏频道, ☘️吉林频道, ☘️内蒙古频道, ☘️云南频道, ☘️青海频道, ☘️黑龙江频道, 🌊港·澳·台, 🎬电影频道, 🎥咪咕直播, 🏀体育频道, 🪁动画频道, 🎮游戏频道, 🎵音乐频道, 历届春晚
+2025-05-30 14:20:16,350 - ERROR - url: https://tv.iill.top/m3u/Live 爬取失败❌, Error: 403 Client Error: Forbidden for url: https://tv.iill.top/m3u/Live
+2025-05-30 14:20:18,257 - ERROR - url: http://tipu.xjqxz.top/live1213.txt 爬取失败❌, Error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-05-30 14:20:26,321 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -62,7 +62,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:00:50,647 - ERROR - Future exception was never retrieved
+2025-05-30 14:20:37,958 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -76,7 +76,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:00:50,647 - ERROR - Future exception was never retrieved
+2025-05-30 14:20:51,054 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -90,7 +90,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:00:50,715 - ERROR - Future exception was never retrieved
+2025-05-30 14:20:51,063 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -104,7 +104,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:00:53,053 - ERROR - Future exception was never retrieved
+2025-05-30 14:21:28,564 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -118,7 +118,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:00,635 - ERROR - Future exception was never retrieved
+2025-05-30 14:21:33,354 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -132,7 +132,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:00,654 - ERROR - Future exception was never retrieved
+2025-05-30 14:21:37,737 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -146,7 +146,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:00,980 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:10,992 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -160,7 +160,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:04,213 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:20,634 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -174,7 +174,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:04,217 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:20,635 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -188,7 +188,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:04,218 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:20,635 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -202,7 +202,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:04,229 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:20,635 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -216,7 +216,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:06,540 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:20,638 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -230,7 +230,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:09,378 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:20,641 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -244,7 +244,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:11,746 - ERROR - Future exception was never retrieved
+2025-05-30 14:22:20,651 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
@@ -258,651 +258,7 @@ ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after 
 The above exception was the direct cause of the following exception:
 
 aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:13,825 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:16,265 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:16,266 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:16,267 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:18,635 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:20,714 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:20,715 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:20,721 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:23,163 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:23,168 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:01:54,653 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:04,685 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:04,689 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:09,052 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:09,243 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:09,244 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:09,256 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:12,219 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:12,219 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:12,219 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:14,278 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:14,278 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:16,989 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:16,991 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:16,992 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:17,000 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:17,001 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:17,011 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:17,018 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:33,867 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,106 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,106 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,107 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,110 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,111 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,113 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,113 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,114 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,115 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,117 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:02:51,118 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:03:05,735 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:03:05,736 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:03:39,135 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:03:39,139 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:03:39,156 - ERROR - Future exception was never retrieved
-future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
-    ssldata, appdata = self._sslpipe.feed_ssldata(data)
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 206, in feed_ssldata
-    self._sslobj.unwrap()
-  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/ssl.py", line 979, in unwrap
-    return self._sslobj.shutdown()
-ssl.SSLError: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-
-The above exception was the direct cause of the following exception:
-
-aiohttp.client_exceptions.ClientConnectionError: Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)
-2025-05-30 09:04:57,147 - ERROR - Future exception was never retrieved
+2025-05-30 14:23:26,627 - ERROR - Future exception was never retrieved
 future: <Future finished exception=ClientConnectionError('Connection lost: [SSL: APPLICATION_DATA_AFTER_CLOSE_NOTIFY] application data after close notify (_ssl.c:2712)')>
 Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/sslproto.py", line 534, in data_received
