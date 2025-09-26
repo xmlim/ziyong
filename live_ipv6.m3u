@@ -981,12 +981,12 @@ http://[2409:8087:1a01:df::4055]:80/TVOD/88888888/224/3221225901/main.m3u8$LR•
 http://[2409:8087:1a15:10d1::33]/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226469/index.m3u8$LR•IPV6『线路2』
 #EXTINF:-1 tvg-id="1" tvg-name="睛彩广场舞" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/睛彩广场舞.png" group-title="体育频道",睛彩广场舞
 http://[2409:8087:1e01:20::3]:80/PLTV/11/224/3221226139/index.m3u8$LR•IPV6『线路1』
-#EXTINF:-1 tvg-id="2" tvg-name="睛彩广场舞" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/睛彩广场舞.png" group-title="体育频道",睛彩广场舞
-http://[2409:8087:1a01:df::7005]:80/ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221226472/index.m3u8$LR•IPV6『线路2』
 #EXTINF:-1 tvg-id="3" tvg-name="睛彩广场舞" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/睛彩广场舞.png" group-title="体育频道",睛彩广场舞
-http://[2409:8087:1a15:10d1::37]/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226472/index.m3u8$LR•IPV6『线路3』
+http://[2409:8087:1a01:df::7005]:80/ottrrs.hl.chinamobile.com/TVOD/88888888/224/3221226472/index.m3u8$LR•IPV6『线路3』
 #EXTINF:-1 tvg-id="4" tvg-name="睛彩广场舞" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/睛彩广场舞.png" group-title="体育频道",睛彩广场舞
-http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226139/index.m3u8$LR•IPV6『线路4』
+http://[2409:8087:1a15:10d1::37]/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226472/index.m3u8$LR•IPV6『线路4』
+#EXTINF:-1 tvg-id="5" tvg-name="睛彩广场舞" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/睛彩广场舞.png" group-title="体育频道",睛彩广场舞
+http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226139/index.m3u8$LR•IPV6『线路5』
 #EXTINF:-1 tvg-id="1" tvg-name="风云足球" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/风云足球.png" group-title="体育频道",风云足球
 http://[2409:8087:7001:20:2::3]/dbiptv.sn.chinamobile.com/PLTV/88888893/224/3221226984/index.m3u8$LR•IPV6『线路1』
 #EXTINF:-1 tvg-id="1" tvg-name="黑莓动画" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/黑莓动画.png" group-title="少儿频道",黑莓动画
