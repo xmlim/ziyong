@@ -180,7 +180,7 @@ def updateChannelUrlsM3U(channels, template_channels):
         f_txt_ipv6.write("\n")
 
 async def check_link_quality(session, link):
-    timeout = ClientTimeout(total=2)  # 设置2秒超时
+    timeout = ClientTimeout(total=5)  # 设置5秒超时
     try:
         start_time = time.time()
         async with session.head(link, timeout=timeout, allow_redirects=True) as response:
