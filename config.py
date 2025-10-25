@@ -1,4 +1,4 @@
-ip_version_priority = "ipv4"
+ip_version_priority = "ipv6"
 
 source_urls = [
   #  "https://live.hacks.tools/tv/iptv6.txt",
@@ -78,4 +78,5 @@ epg_urls = [
     "https://epg.pw/xmltv/epg_TW.xml"
 
 ]
+
 
