@@ -1,5 +1,5 @@
 LINTCL更新日期,#genre#
-2025-10-25,https://gitlab.com/lr77/IPTV/-/raw/main/%E8%B5%B7%E9%A3%8E%E4%BA%86.mp4
+2025-10-26,https://gitlab.com/lr77/IPTV/-/raw/main/%E8%B5%B7%E9%A3%8E%E4%BA%86.mp4
 央视频道,#genre#
 福建频道,#genre#
 卫视频道,#genre#
