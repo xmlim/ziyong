@@ -28,7 +28,7 @@ source_urls = [
    # "https://github.moeyy.xyz/https://raw.githubusercontent.com/Ftindy/IPTV-URL/main/huyayqk.m3u",
    # "http://www.lyyytv.cn/yt/zhibo/1.txt",
    # "http://live.nctv.top/x.txt",
-  #  "http://www.lyyytv.cn/yt/zhibo/1.txt",
+    "https://gitee.com/xiaranxiaran/tv/blob/master/1.txt",
    # "https://tv.iill.top/m3u/Live",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u",
