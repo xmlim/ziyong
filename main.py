@@ -31,6 +31,9 @@ class IPTVProcessor:
         self.session = None
         self.timeout = getattr(config, 'request_timeout', 10)
         self.max_workers = getattr(config, 'max_workers', 50)
+        self.link_check_timeout = getattr(config, 'performance_config', {}).get('link_check_timeout', 3)
+        self.max_concurrent_checks = getattr(config, 'performance_config', {}).get('max_concurrent_checks', 50)
+        self.skip_check_patterns = getattr(config, 'skip_check_patterns', [])
         
     async def __aenter__(self):
         await self.setup_session()
@@ -99,7 +102,6 @@ class IPTVProcessor:
 
             current_category = "默认分类"  # 为无分类的频道设置默认分类
             channel_name = None
-            channel_url = None
 
             if is_m3u:
                 for i, line in enumerate(lines):
@@ -135,7 +137,7 @@ class IPTVProcessor:
                             logger.debug(f"添加频道: {channel_name}, URL: {channel_url}")
                             channel_name = None  # 重置频道名
             else:
-                # TXT格式处理
+                # TXT格式处理 - 修复bug
                 for line in lines:
                     line = line.strip()
                     if not line:
@@ -143,14 +145,30 @@ class IPTVProcessor:
                         
                     if "#genre#" in line:
                         current_category = line.split(",")[0].strip()
-                        channels[current_category] = []
-                    elif current_category and ',' in line:
-                        parts = line.split(',', 1)
-                        if len(parts) == 2:
-                            channel_name = parts[0].strip()
-                            channel_url = parts[1].strip()
-                            if channel_url.startswith(('http://', 'https://')):
-                                channels[current_category].append((channel_name, channel_url))
+                        # 确保分类在channels字典中
+                        if current_category not in channels:
+                            channels[current_category] = []
+                        logger.debug(f"找到分类: {current_category}")
+                    elif current_category:  # 确保有当前分类
+                        if ',' in line:
+                            parts = line.split(',', 1)
+                            if len(parts) == 2:
+                                channel_name = parts[0].strip()
+                                channel_url = parts[1].strip()
+                                if channel_url.startswith(('http://', 'https://')):
+                                    # 确保分类存在
+                                    if current_category not in channels:
+                                        channels[current_category] = []
+                                    channels[current_category].append((channel_name, channel_url))
+                                    logger.debug(f"添加频道到分类 {current_category}: {channel_name}")
+                        else:
+                            # 处理没有URL的情况
+                            channel_name = line.strip()
+                            if channel_name:
+                                if current_category not in channels:
+                                    channels[current_category] = []
+                                channels[current_category].append((channel_name, ''))
+                                logger.debug(f"添加无URL频道到分类 {current_category}: {channel_name}")
 
             if channels:
                 total_channels = sum(len(channel_list) for channel_list in channels.values())
@@ -254,29 +272,54 @@ class IPTVProcessor:
         """检查URL是否在黑名单中"""
         blacklist = getattr(config, 'url_blacklist', [])
         return any(blacklisted in url for blacklisted in blacklist)
+    
+    def should_skip_check(self, url):
+        """检查是否应该跳过链接检查"""
+        return any(pattern in url for pattern in self.skip_check_patterns)
 
     async def check_link_quality(self, url):
-        """检查链接质量"""
+        """检查链接质量 - 优化版本"""
         if not self.session:
             await self.setup_session()
-            
+        
+        # 跳过已知稳定的源
+        if self.should_skip_check(url):
+            return 0.1  # 返回一个很小的响应时间，表示稳定
+        
+        # 减少超时时间
+        timeout = ClientTimeout(total=self.link_check_timeout)
+        
         try:
             start_time = time.time()
-            async with self.session.head(url, allow_redirects=True) as response:
+            # 使用更快的检查方法，只等待状态码
+            async with self.session.get(url, timeout=timeout, allow_redirects=True) as response:
+                # 只读取前几个字节来确认连接
+                await response.content.read(1024)
                 response_time = time.time() - start_time
+                
                 if response.status == 200:
                     return response_time
                 return float('inf')
+        except asyncio.TimeoutError:
+            logger.debug(f"链接检查超时: {url}")
+            return float('inf')
         except Exception as e:
             logger.debug(f"链接检查失败 {url}: {e}")
             return float('inf')
 
     async def check_links_batch(self, urls):
-        """批量检查链接质量"""
+        """批量检查链接质量 - 优化版本"""
         if not urls:
             return []
-            
-        tasks = [self.check_link_quality(url) for url in urls]
+        
+        # 限制并发数量，避免过多请求
+        semaphore = asyncio.Semaphore(self.max_concurrent_checks)
+        
+        async def bounded_check(url):
+            async with semaphore:
+                return await self.check_link_quality(url)
+        
+        tasks = [bounded_check(url) for url in urls]
         results = await asyncio.gather(*tasks, return_exceptions=True)
         
         # 处理异常结果
