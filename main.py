@@ -57,6 +57,40 @@ class IPTVProcessor:
         if self.session:
             await self.session.close()
 
+    def analyze_source_format(self, url):
+        """分析原始源码的格式"""
+        try:
+            response = requests.get(url, timeout=self.timeout)
+            response.encoding = 'utf-8'
+            content = response.text
+            
+            logger.info("=== 源码格式分析 ===")
+            logger.info(f"URL: {url}")
+            logger.info(f"文件大小: {len(content)} 字节")
+            
+            # 分析M3U头
+            if content.startswith("#EXTM3U"):
+                header_line = content.split('\n')[0]
+                logger.info(f"M3U头: {header_line}")
+            
+            # 分析前几个频道
+            lines = content.split('\n')
+            extinf_count = 0
+            for i, line in enumerate(lines):
+                if line.startswith("#EXTINF"):
+                    extinf_count += 1
+                    logger.info(f"EXTINF示例 {extinf_count}: {line}")
+                    if i+1 < len(lines) and not lines[i+1].startswith("#"):
+                        logger.info(f"URL示例 {extinf_count}: {lines[i+1]}")
+                    if extinf_count >= 2:  # 只显示前2个
+                        break
+            
+            logger.info("===================")
+            return content
+        except Exception as e:
+            logger.error(f"分析失败: {e}")
+            return None
+
     def parse_template(self, template_file):
         """解析模板文件"""
         template_channels = OrderedDict()
@@ -371,7 +405,7 @@ class IPTVProcessor:
         return sorted_channels
 
     def update_channel_urls_m3u(self, channels, template_channels):
-        """更新频道URL到M3U和TXT文件"""
+        """更新频道URL到M3U和TXT文件 - 提供原始格式和处理格式两种版本"""
         try:
             current_date = datetime.now().strftime("%Y-%m-%d")
             
@@ -386,32 +420,27 @@ class IPTVProcessor:
             output_dir = getattr(config, 'output_config', {}).get('output_dir', 'output')
             os.makedirs(output_dir, exist_ok=True)
             
-            # 获取输出文件配置
-            output_files = getattr(config, 'output_config', {}).get('files', {})
-            ipv4_files = output_files.get('ipv4', {})
-            ipv6_files = output_files.get('ipv6', {})
-            
-            m3u_file = os.path.join(output_dir, ipv4_files.get('m3u', 'live.m3u'))
-            txt_file = os.path.join(output_dir, ipv4_files.get('txt', 'live.txt'))
-            m3u_ipv6_file = os.path.join(output_dir, ipv6_files.get('m3u', 'live_ipv6.m3u'))
-            txt_ipv6_file = os.path.join(output_dir, ipv6_files.get('txt', 'live_ipv6.txt'))
-            
-            with open(m3u_file, "w", encoding="utf-8") as f_m3u, \
-                 open(txt_file, "w", encoding="utf-8") as f_txt, \
-                 open(m3u_ipv6_file, "w", encoding="utf-8") as f_m3u_ipv6, \
-                 open(txt_ipv6_file, "w", encoding="utf-8") as f_txt_ipv6:
+            # 生成两种版本：原始格式和带后缀格式
+            with open(os.path.join(output_dir, "live_original.m3u"), "w", encoding="utf-8") as f_orig_m3u, \
+                 open(os.path.join(output_dir, "live_original.txt"), "w", encoding="utf-8") as f_orig_txt, \
+                 open(os.path.join(output_dir, "live.m3u"), "w", encoding="utf-8") as f_m3u, \
+                 open(os.path.join(output_dir, "live.txt"), "w", encoding="utf-8") as f_txt, \
+                 open(os.path.join(output_dir, "live_ipv6.m3u"), "w", encoding="utf-8") as f_m3u_ipv6, \
+                 open(os.path.join(output_dir, "live_ipv6.txt"), "w", encoding="utf-8") as f_txt_ipv6:
                 
                 # 写入M3U头
                 epg_urls = getattr(config, 'epg_urls', [])
                 m3u_header = f"""#EXTM3U x-tvg-url="{','.join(epg_urls)}"\n"""
-                f_m3u.write(m3u_header)
-                f_m3u_ipv6.write(m3u_header)
+                
+                for f in [f_orig_m3u, f_m3u, f_m3u_ipv6]:
+                    f.write(m3u_header)
 
                 # 写入公告频道
                 for group in announcements:
                     group_title = group.get('channel', '公告')
-                    f_txt.write(f"{group_title},#genre#\n")
-                    f_txt_ipv6.write(f"{group_title},#genre#\n")
+                    
+                    for f_txt_file in [f_orig_txt, f_txt, f_txt_ipv6]:
+                        f_txt_file.write(f"{group_title},#genre#\n")
                     
                     for announcement in group.get('entries', []):
                         name = announcement.get('name', '')
@@ -419,53 +448,71 @@ class IPTVProcessor:
                         url = announcement.get('url', '')
                         
                         announcement_line = f"""#EXTINF:-1 tvg-id="1" tvg-name="{name}" tvg-logo="{logo}" group-title="{group_title}",{name}\n"""
-                        f_m3u.write(announcement_line)
-                        f_m3u.write(f"{url}\n")
-                        f_m3u_ipv6.write(announcement_line)
-                        f_m3u_ipv6.write(f"{url}\n")
-                        f_txt.write(f"{name},{url}\n")
-                        f_txt_ipv6.write(f"{name},{url}\n")
+                        
+                        for f_m3u_file in [f_orig_m3u, f_m3u, f_m3u_ipv6]:
+                            f_m3u_file.write(announcement_line)
+                            f_m3u_file.write(f"{url}\n")
+                        
+                        for f_txt_file in [f_orig_txt, f_txt, f_txt_ipv6]:
+                            f_txt_file.write(f"{name},{url}\n")
 
                 # 写入频道数据
-                written_channels = set()  # 跟踪已写入的频道
+                written_channels_orig = set()  # 跟踪原始格式已写入的频道
+                written_channels = set()  # 跟踪处理格式已写入的频道
                 
                 for category, channel_list in template_channels.items():
-                    f_txt.write(f"{category},#genre#\n")
-                    f_txt_ipv6.write(f"{category},#genre#\n")
+                    for f_txt_file in [f_orig_txt, f_txt, f_txt_ipv6]:
+                        f_txt_file.write(f"{category},#genre#\n")
                     
                     if category in channels:
                         for channel_name in channel_list:
-                            if channel_name in channels[category] and channel_name not in written_channels:
+                            if channel_name in channels[category]:
                                 urls = channels[category][channel_name]
                                 
                                 # 分离IPv4和IPv6
                                 ipv4_urls = [url for url in urls if not self.is_ipv6(url)]
                                 ipv6_urls = [url for url in urls if self.is_ipv6(url)]
                                 
-                                # 写入IPv4
-                                for index, url in enumerate(ipv4_urls[:10], start=1):
-                                    url_suffix = "$LR•IPV4" if len(ipv4_urls) == 1 else f"$LR•IPV4『线路{index}』"
-                                    new_url = f"{url}{url_suffix}"
+                                # 原始格式：使用第一个URL，不添加后缀
+                                if ipv4_urls and channel_name not in written_channels_orig:
+                                    original_url = ipv4_urls[0]
                                     logo_url = getattr(config, 'logo_base_url', 'https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/') + f"{channel_name}.png"
                                     
-                                    f_m3u.write(f'#EXTINF:-1 tvg-id="{index}" tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{category}",{channel_name}\n')
-                                    f_m3u.write(new_url + "\n")
-                                    f_txt.write(f"{channel_name},{new_url}\n")
+                                    # 写入原始格式
+                                    f_orig_m3u.write(f'#EXTINF:-1 tvg-id="1" tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{category}",{channel_name}\n')
+                                    f_orig_m3u.write(original_url + "\n")
+                                    f_orig_txt.write(f"{channel_name},{original_url}\n")
+                                    written_channels_orig.add(channel_name)
                                 
-                                # 写入IPv6
-                                for index, url in enumerate(ipv6_urls[:10], start=1):
-                                    url_suffix = "$LR•IPV6" if len(ipv6_urls) == 1 else f"$LR•IPV6『线路{index}』"
-                                    new_url = f"{url}{url_suffix}"
-                                    logo_url = getattr(config, 'logo_base_url', 'https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/') + f"{channel_name}.png"
+                                # 处理后的格式：添加后缀和多线路
+                                if channel_name not in written_channels:
+                                    # IPv4版本
+                                    for index, url in enumerate(ipv4_urls[:10], start=1):
+                                        url_suffix = "$LR•IPV4" if len(ipv4_urls) == 1 else f"$LR•IPV4『线路{index}』"
+                                        new_url = f"{url}{url_suffix}"
+                                        logo_url = getattr(config, 'logo_base_url', 'https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/') + f"{channel_name}.png"
+                                        
+                                        f_m3u.write(f'#EXTINF:-1 tvg-id="{index}" tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{category}",{channel_name}\n')
+                                        f_m3u.write(new_url + "\n")
+                                        f_txt.write(f"{channel_name},{new_url}\n")
                                     
-                                    f_m3u_ipv6.write(f'#EXTINF:-1 tvg-id="{index}" tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{category}",{channel_name}\n')
-                                    f_m3u_ipv6.write(new_url + "\n")
-                                    f_txt_ipv6.write(f"{channel_name},{new_url}\n")
-                                
-                                written_channels.add(channel_name)  # 标记为已写入
+                                    # IPv6版本
+                                    for index, url in enumerate(ipv6_urls[:10], start=1):
+                                        url_suffix = "$LR•IPV6" if len(ipv6_urls) == 1 else f"$LR•IPV6『线路{index}』"
+                                        new_url = f"{url}{url_suffix}"
+                                        logo_url = getattr(config, 'logo_base_url', 'https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/') + f"{channel_name}.png"
+                                        
+                                        f_m3u_ipv6.write(f'#EXTINF:-1 tvg-id="{index}" tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{category}",{channel_name}\n')
+                                        f_m3u_ipv6.write(new_url + "\n")
+                                        f_txt_ipv6.write(f"{channel_name},{new_url}\n")
+                                    
+                                    written_channels.add(channel_name)
 
-                logger.info(f"文件生成完成: {m3u_file}, {txt_file}, {m3u_ipv6_file}, {txt_ipv6_file}")
-                
+            logger.info(f"文件生成完成:")
+            logger.info(f"- 原始格式: live_original.m3u, live_original.txt")
+            logger.info(f"- 处理格式: live.m3u, live.txt")
+            logger.info(f"- IPv6格式: live_ipv6.m3u, live_ipv6.txt")
+            
         except Exception as e:
             logger.error(f"生成文件失败: {e}")
             raise
@@ -475,6 +522,12 @@ async def main():
     processor = IPTVProcessor("demo.txt")
     
     try:
+        # 先分析源格式
+        logger.info("开始分析源格式...")
+        source_urls = getattr(config, 'source_urls', [])
+        for url in source_urls:
+            processor.analyze_source_format(url)
+        
         # 获取频道数据
         channels, template_channels = processor.filter_source_urls()
         
