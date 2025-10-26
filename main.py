@@ -10,7 +10,6 @@ from concurrent.futures import ThreadPoolExecutor
 import aiohttp
 import asyncio
 from aiohttp import ClientTimeout, TCPConnector
-from functools import partial
 import os
 from urllib.parse import urlparse
 import backoff
@@ -85,7 +84,7 @@ class IPTVProcessor:
 
     @backoff.on_exception(backoff.expo, (requests.RequestException,), max_tries=3)
     def fetch_channels(self, url):
-        """获取频道数据，支持重试机制"""
+        """获取频道数据，支持重试机制和无group-title的M3U格式"""
         channels = OrderedDict()
 
         try:
@@ -98,23 +97,34 @@ class IPTVProcessor:
             source_type = "m3u" if is_m3u else "txt"
             logger.info(f"URL: {url} 获取成功，格式: {source_type}")
 
-            current_category = None
+            current_category = "默认分类"  # 为无分类的频道设置默认分类
             channel_name = None
+            channel_url = None
 
             if is_m3u:
                 for i, line in enumerate(lines):
                     line = line.strip()
                     if line.startswith("#EXTINF"):
-                        # 提取分类和频道名
+                        # 尝试多种格式的解析
                         match = re.search(r'group-title="([^"]*)"\s*,\s*(.+)', line)
                         if match:
+                            # 标准格式：有group-title
                             current_category = match.group(1).strip() or "未分类"
                             channel_name = match.group(2).strip()
+                            logger.debug(f"找到标准格式频道: {channel_name}, 分类: {current_category}")
                         else:
-                            # 备用解析方式
-                            current_category = "未分类"
-                            channel_name = line.split(',')[-1].strip() if ',' in line else f"频道_{i}"
-                            
+                            # 无group-title格式：直接提取频道名
+                            match_simple = re.search(r'#EXTINF:.*?,(.+)', line)
+                            if match_simple:
+                                channel_name = match_simple.group(1).strip()
+                                current_category = "默认分类"  # 使用默认分类
+                                logger.debug(f"找到简单格式频道: {channel_name}, 分类: {current_category}")
+                            else:
+                                # 备用解析方式
+                                current_category = "默认分类"
+                                channel_name = line.split(',')[-1].strip() if ',' in line else f"频道_{i}"
+                                logger.debug(f"使用备用解析频道: {channel_name}, 分类: {current_category}")
+                        
                         if current_category not in channels:
                             channels[current_category] = []
                             
@@ -122,6 +132,7 @@ class IPTVProcessor:
                         channel_url = line.strip()
                         if channel_url.startswith(('http://', 'https://')):
                             channels[current_category].append((channel_name, channel_url))
+                            logger.debug(f"添加频道: {channel_name}, URL: {channel_url}")
                             channel_name = None  # 重置频道名
             else:
                 # TXT格式处理
@@ -142,8 +153,9 @@ class IPTVProcessor:
                                 channels[current_category].append((channel_name, channel_url))
 
             if channels:
+                total_channels = sum(len(channel_list) for channel_list in channels.values())
                 categories = list(channels.keys())
-                logger.info(f"URL: {url} 处理完成，分类数: {len(categories)}")
+                logger.info(f"URL: {url} 处理完成，分类数: {len(categories)}, 频道总数: {total_channels}")
             else:
                 logger.warning(f"URL: {url} 未找到有效频道")
                 
@@ -328,12 +340,23 @@ class IPTVProcessor:
                         announcement['name'] = current_date
 
             # 创建输出目录
-            os.makedirs('output', exist_ok=True)
+            output_dir = getattr(config, 'output_config', {}).get('output_dir', 'output')
+            os.makedirs(output_dir, exist_ok=True)
             
-            with open("output/live.m3u", "w", encoding="utf-8") as f_m3u, \
-                 open("output/live.txt", "w", encoding="utf-8") as f_txt, \
-                 open("output/live_ipv6.m3u", "w", encoding="utf-8") as f_m3u_ipv6, \
-                 open("output/live_ipv6.txt", "w", encoding="utf-8") as f_txt_ipv6:
+            # 获取输出文件配置
+            output_files = getattr(config, 'output_config', {}).get('files', {})
+            ipv4_files = output_files.get('ipv4', {})
+            ipv6_files = output_files.get('ipv6', {})
+            
+            m3u_file = os.path.join(output_dir, ipv4_files.get('m3u', 'live.m3u'))
+            txt_file = os.path.join(output_dir, ipv4_files.get('txt', 'live.txt'))
+            m3u_ipv6_file = os.path.join(output_dir, ipv6_files.get('m3u', 'live_ipv6.m3u'))
+            txt_ipv6_file = os.path.join(output_dir, ipv6_files.get('txt', 'live_ipv6.txt'))
+            
+            with open(m3u_file, "w", encoding="utf-8") as f_m3u, \
+                 open(txt_file, "w", encoding="utf-8") as f_txt, \
+                 open(m3u_ipv6_file, "w", encoding="utf-8") as f_m3u_ipv6, \
+                 open(txt_ipv6_file, "w", encoding="utf-8") as f_txt_ipv6:
                 
                 # 写入M3U头
                 epg_urls = getattr(config, 'epg_urls', [])
@@ -361,13 +384,15 @@ class IPTVProcessor:
                         f_txt_ipv6.write(f"{name},{url}\n")
 
                 # 写入频道数据
+                written_channels = set()  # 跟踪已写入的频道
+                
                 for category, channel_list in template_channels.items():
                     f_txt.write(f"{category},#genre#\n")
                     f_txt_ipv6.write(f"{category},#genre#\n")
                     
                     if category in channels:
                         for channel_name in channel_list:
-                            if channel_name in channels[category]:
+                            if channel_name in channels[category] and channel_name not in written_channels:
                                 urls = channels[category][channel_name]
                                 
                                 # 分离IPv4和IPv6
@@ -378,7 +403,7 @@ class IPTVProcessor:
                                 for index, url in enumerate(ipv4_urls[:10], start=1):
                                     url_suffix = "$LR•IPV4" if len(ipv4_urls) == 1 else f"$LR•IPV4『线路{index}』"
                                     new_url = f"{url}{url_suffix}"
-                                    logo_url = f"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png"
+                                    logo_url = getattr(config, 'logo_base_url', 'https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/') + f"{channel_name}.png"
                                     
                                     f_m3u.write(f'#EXTINF:-1 tvg-id="{index}" tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{category}",{channel_name}\n')
                                     f_m3u.write(new_url + "\n")
@@ -388,13 +413,15 @@ class IPTVProcessor:
                                 for index, url in enumerate(ipv6_urls[:10], start=1):
                                     url_suffix = "$LR•IPV6" if len(ipv6_urls) == 1 else f"$LR•IPV6『线路{index}』"
                                     new_url = f"{url}{url_suffix}"
-                                    logo_url = f"https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/{channel_name}.png"
+                                    logo_url = getattr(config, 'logo_base_url', 'https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/') + f"{channel_name}.png"
                                     
                                     f_m3u_ipv6.write(f'#EXTINF:-1 tvg-id="{index}" tvg-name="{channel_name}" tvg-logo="{logo_url}" group-title="{category}",{channel_name}\n')
                                     f_m3u_ipv6.write(new_url + "\n")
                                     f_txt_ipv6.write(f"{channel_name},{new_url}\n")
+                                
+                                written_channels.add(channel_name)  # 标记为已写入
 
-                logger.info("文件生成完成")
+                logger.info(f"文件生成完成: {m3u_file}, {txt_file}, {m3u_ipv6_file}, {txt_ipv6_file}")
                 
         except Exception as e:
             logger.error(f"生成文件失败: {e}")
