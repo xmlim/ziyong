@@ -255,28 +255,10 @@ http://27.148.240.185/PLTV/88888888/224/3221227332/1.m3u8$LR•IPV4
 http://27.148.240.185/PLTV/88888888/224/3221226900/1.m3u8$LR•IPV4
 #EXTINF:-1 tvg-id="1" tvg-name="西藏卫视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/西藏卫视.png" group-title="卫视频道",西藏卫视
 http://27.148.240.185/PLTV/88888888/224/3221227344/1.m3u8$LR•IPV4
-#EXTINF:-1 tvg-id="1" tvg-name="海峡卫视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/海峡卫视.png" group-title="卫视频道",海峡卫视
-http://27.148.240.185/PLTV/88888888/224/3221226748/1.m3u8$LR•IPV4『线路1』
-#EXTINF:-1 tvg-id="2" tvg-name="海峡卫视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/海峡卫视.png" group-title="卫视频道",海峡卫视
-http://ott.fj.chinamobile.com/PLTV/88888888/224/3221227198/index.m3u8$LR•IPV4『线路2』
 #EXTINF:-1 tvg-id="1" tvg-name="兵团卫视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/兵团卫视.png" group-title="卫视频道",兵团卫视
 http://27.148.240.185/PLTV/88888888/224/3221227335/1.m3u8$LR•IPV4
 #EXTINF:-1 tvg-id="1" tvg-name="三沙卫视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/三沙卫视.png" group-title="卫视频道",三沙卫视
 http://27.148.240.185/PLTV/88888888/224/3221227072/1.m3u8$LR•IPV4
-#EXTINF:-1 tvg-id="1" tvg-name="CCTV5" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV5.png" group-title="体育频道",CCTV5
-http://27.148.240.185/PLTV/88888888/224/3221227254/1.m3u8$LR•IPV4『线路1』
-#EXTINF:-1 tvg-id="2" tvg-name="CCTV5" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV5.png" group-title="体育频道",CCTV5
-http://ott.fj.chinamobile.com/PLTV/88888888/224/3221227283/index.m3u8$LR•IPV4『线路2』
-#EXTINF:-1 tvg-id="3" tvg-name="CCTV5" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV5.png" group-title="体育频道",CCTV5
-http://ott.fj.chinamobile.com/PLTV/88888888/224/3221227229/index.m3u8$LR•IPV4『线路3』
-#EXTINF:-1 tvg-id="1" tvg-name="CCTV5+" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV5+.png" group-title="体育频道",CCTV5+
-http://27.148.240.185/PLTV/88888888/224/3221226850/1.m3u8$LR•IPV4『线路1』
-#EXTINF:-1 tvg-id="2" tvg-name="CCTV5+" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV5+.png" group-title="体育频道",CCTV5+
-http://27.148.240.185/PLTV/88888888/224/3221227095/1.m3u8$LR•IPV4『线路2』
-#EXTINF:-1 tvg-id="3" tvg-name="CCTV5+" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV5+.png" group-title="体育频道",CCTV5+
-http://ott.fj.chinamobile.com/PLTV/88888888/224/3221225939/index.m3u8$LR•IPV4『线路3』
-#EXTINF:-1 tvg-id="4" tvg-name="CCTV5+" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV5+.png" group-title="体育频道",CCTV5+
-http://ott.fj.chinamobile.com/PLTV/88888888/224/3221225821/index.m3u8$LR•IPV4『线路4』
 #EXTINF:-1 tvg-id="1" tvg-name="卡酷少儿" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/卡酷少儿.png" group-title="少儿频道",卡酷少儿
 http://27.148.240.185/PLTV/88888888/224/3221226916/1.m3u8$LR•IPV4
 #EXTINF:-1 tvg-id="1" tvg-name="金鹰卡通" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/金鹰卡通.png" group-title="少儿频道",金鹰卡通
