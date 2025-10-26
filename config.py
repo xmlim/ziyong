@@ -30,8 +30,8 @@ source_urls = [
    # "http://live.nctv.top/x.txt",
   #  "http://www.lyyytv.cn/yt/zhibo/1.txt",
    # "https://tv.iill.top/m3u/Live",
-    "https://github.lintcl.com/xmlim/ziyong/raw/refs/heads/main/FJTELE.m3u",
-    "https://github.lintcl.com/xmlim/ziyong/raw/refs/heads/main/FJCMCC.m3u",
+    "https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u",
+    "https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u",
    # "http://tipu.xjqxz.top/live1213.txt"
 ]  # Added closing bracket here
 
