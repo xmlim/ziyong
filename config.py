@@ -2,7 +2,7 @@
 
 # 源URL列表
 source_urls = [
-    #"https://gitee.com/xiaranxiaran/tv/raw/master/1.txt",
+   # "https://gitee.com/xiaranxiaran/tv/raw/master/1.txt",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u",
     # 台湾频道源（示例，请测试可用性）
@@ -10,14 +10,36 @@ source_urls = [
     #"https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/global.m3u",
     #"https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u",
 ]
-    # 可以添加更多包含台湾频道的源
-]
 
 # URL黑名单
 url_blacklist = [
     "epg.pw/stream/",
     "103.40.13.71:12390",
-    # ... 其他黑名单项
+    "[2409:8087:1a01:df::4077]/PLTV/",
+    "8.210.140.75:68",
+    "154.12.50.54",
+    "yinhe.live_hls.zte.com",
+    "8.137.59.151",
+    "[2409:8087:7000:20:1000::22]:6060",
+    "histar.zapi.us.kg",
+    "www.tfiplaytv.vip",
+    "dp.sxtv.top",
+    "111.230.30.193",
+    "148.135.93.213:81",
+    "live.goodiptv.club",
+    "iptv.luas.edu.cn",
+    "[2409:8087:2001:20:2800:0:df6e:eb22]:80",
+    "[2409:8087:2001:20:2800:0:df6e:eb23]:80",
+    "[2409:8087:2001:20:2800:0:df6e:eb1d]/ott.mobaibox.com/",
+    "[2409:8087:2001:20:2800:0:df6e:eb1d]:80",
+    "[2409:8087:2001:20:2800:0:df6e:eb24]",
+    "2409:8087:2001:20:2800:0:df6e:eb25]:80",
+    "[2409:8087:2001:20:2800:0:df6e:eb27]",
+    # 添加更多常见无效域名
+    "example.com",
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0"
 ]
 
 # 公告频道配置
@@ -35,6 +57,9 @@ epg_urls = [
     "https://live.fanmingming.com/e.xml",
     "http://epg.51zmt.top:8000/e.xml",
     "http://epg.aptvapp.com/xml",
+    "https://epg.pw/xmltv/epg_CN.xml",
+    "https://epg.pw/xmltv/epg_HK.xml",
+    "https://epg.pw/xmltv/epg_TW.xml"
 ]
 
 # 频道Logo基础URL
@@ -59,11 +84,11 @@ skip_check_patterns = [
 
 # 输出格式配置 - 重点优化
 output_format = {
-    "include_original": True,           # 包含原始格式（现在已默认）
-    "url_suffix_enabled": False,        # 默认关闭URL后缀，确保电视APP兼容性
-    "suffix_style": "simple",           # 后缀样式：simple/advanced
-    "max_urls_per_channel": 10,         # 每个频道最大URL数量 - 已改为10
-    "preserve_source_order": True,      # 保持源中的URL顺序，不进行质量排序
+    "include_original": True,
+    "url_suffix_enabled": False,
+    "suffix_style": "simple",
+    "max_urls_per_channel": 10,
+    "preserve_source_order": True,
 }
 
 # 请求配置
