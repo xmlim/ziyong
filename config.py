@@ -23,9 +23,9 @@ max_urls_per_channel = 10
 
 # 源URL列表
 source_urls = [
-    "https://gitee.com/xiaranxiaran/tv/raw/master/1.txt",
+    #"https://gitee.com/xiaranxiaran/tv/raw/master/1.txt",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u",
-    "https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u",
+    #"https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u",
     # 备用源（注释的源可以作为备用）
     # "https://live.hacks.tools/tv/iptv6.txt",
     # "http://aktv.top/live.txt",
