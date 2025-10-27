@@ -2,7 +2,7 @@
 
 # 源URL列表
 source_urls = [
-    "https://raw.githubusercontent.com/xmlim/1/mainFEW.txt",
+    "https://raw.githubusercontent.com/xmlim/1/main/FJCUCC.m3u",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u",
     # 台湾频道源（示例，请测试可用性）
