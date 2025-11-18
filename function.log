@@ -1,38 +1,38 @@
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 开始IPTV处理...
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 输出配置: 后缀启用=False, 最大URL数=10
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 央视频道
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 福建频道
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 卫视频道
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 体育频道
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 港·澳·台
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 少儿频道
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 影视频道
-2025-11-18 20:25:02,089 - INFO - IPTV_Processor - 找到分类: 仅学习勿商用
-2025-11-18 20:25:02,090 - INFO - IPTV_Processor - 模板解析完成，共 8 个分类
-2025-11-18 20:25:02,305 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u 获取成功，格式: m3u
-2025-11-18 20:25:02,306 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u 处理完成，分类数: 1, 频道总数: 113
-2025-11-18 20:25:02,320 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/1/main/FJCUCC.M3U 获取成功，格式: m3u
-2025-11-18 20:25:02,321 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/1/main/FJCUCC.M3U 处理完成，分类数: 1, 频道总数: 0
-2025-11-18 20:25:02,323 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u 获取成功，格式: m3u
-2025-11-18 20:25:02,323 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u 处理完成，分类数: 1, 频道总数: 58
-2025-11-18 20:25:02,716 - INFO - IPTV_Processor - 频道匹配完成，共匹配 140 个频道
-2025-11-18 20:25:02,716 - INFO - IPTV_Processor - 处理进度: 10/151
-2025-11-18 20:25:02,716 - INFO - IPTV_Processor - 处理进度: 20/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 30/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 40/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 50/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 60/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 70/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 80/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 90/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 100/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 110/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 120/151
-2025-11-18 20:25:02,717 - INFO - IPTV_Processor - 处理进度: 130/151
-2025-11-18 20:25:02,718 - INFO - IPTV_Processor - 处理进度: 140/151
-2025-11-18 20:25:02,718 - INFO - IPTV_Processor - 处理进度: 150/151
-2025-11-18 20:25:02,718 - INFO - IPTV_Processor - 频道链接处理完成
-2025-11-18 20:25:02,718 - INFO - IPTV_Processor - 文件生成完成: output/live.m3u, output/live.txt
-2025-11-18 20:25:02,718 - INFO - IPTV_Processor - 主文件: output/live.m3u (电视APP兼容格式)
-2025-11-18 20:25:02,719 - INFO - IPTV_Processor - IPTV处理完成
-2025-11-18 20:25:02,719 - INFO - IPTV_Processor - 请使用 output/live.m3u 或 output/live.txt 在电视APP中播放
+2025-11-19 02:18:12,521 - INFO - IPTV_Processor - 开始IPTV处理...
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 输出配置: 后缀启用=False, 最大URL数=10
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 央视频道
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 福建频道
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 卫视频道
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 体育频道
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 港·澳·台
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 少儿频道
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 影视频道
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 找到分类: 仅学习勿商用
+2025-11-19 02:18:12,522 - INFO - IPTV_Processor - 模板解析完成，共 8 个分类
+2025-11-19 02:18:12,638 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u 获取成功，格式: m3u
+2025-11-19 02:18:12,639 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u 处理完成，分类数: 1, 频道总数: 58
+2025-11-19 02:18:12,645 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u 获取成功，格式: m3u
+2025-11-19 02:18:12,645 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u 处理完成，分类数: 1, 频道总数: 113
+2025-11-19 02:18:12,685 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/1/main/FJCUCC.M3U 获取成功，格式: m3u
+2025-11-19 02:18:12,686 - INFO - IPTV_Processor - URL: https://raw.githubusercontent.com/xmlim/1/main/FJCUCC.M3U 处理完成，分类数: 1, 频道总数: 0
+2025-11-19 02:18:13,122 - INFO - IPTV_Processor - 频道匹配完成，共匹配 140 个频道
+2025-11-19 02:18:13,123 - INFO - IPTV_Processor - 处理进度: 10/151
+2025-11-19 02:18:13,123 - INFO - IPTV_Processor - 处理进度: 20/151
+2025-11-19 02:18:13,123 - INFO - IPTV_Processor - 处理进度: 30/151
+2025-11-19 02:18:13,123 - INFO - IPTV_Processor - 处理进度: 40/151
+2025-11-19 02:18:13,123 - INFO - IPTV_Processor - 处理进度: 50/151
+2025-11-19 02:18:13,123 - INFO - IPTV_Processor - 处理进度: 60/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 70/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 80/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 90/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 100/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 110/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 120/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 130/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 140/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 处理进度: 150/151
+2025-11-19 02:18:13,124 - INFO - IPTV_Processor - 频道链接处理完成
+2025-11-19 02:18:13,125 - INFO - IPTV_Processor - 文件生成完成: output/live.m3u, output/live.txt
+2025-11-19 02:18:13,125 - INFO - IPTV_Processor - 主文件: output/live.m3u (电视APP兼容格式)
+2025-11-19 02:18:13,125 - INFO - IPTV_Processor - IPTV处理完成
+2025-11-19 02:18:13,125 - INFO - IPTV_Processor - 请使用 output/live.m3u 或 output/live.txt 在电视APP中播放
