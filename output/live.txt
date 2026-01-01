@@ -1,5 +1,5 @@
 LINTCL更新日期,#genre#
-2026-01-01,https://gitlab.com/lr77/IPTV/-/raw/main/%E8%B5%B7%E9%A3%8E%E4%BA%86.mp4
+2026-01-02,https://gitlab.com/lr77/IPTV/-/raw/main/%E8%B5%B7%E9%A3%8E%E4%BA%86.mp4
 央视频道,#genre#
 CCTV1,http://27.148.240.185/PLTV/88888888/224/3221226773/1.m3u8
 CCTV1,http://27.148.240.185/PLTV/88888888/224/3221226914/1.m3u8
