@@ -47,7 +47,7 @@ announcements = [
     {
         "channel": "LINTCL更新日期",
         "entries": [
-            {"name": None, "url": "https://github.lintcl.com/xmlim/1/raw/refs/heads/main/叶启田-故乡.mp4", "logo": "http://175.178.251.183:6689/LR.jpg"}
+            {"name": None, "url": "https://github.com/xmlim/1/raw/main/%E5%8F%B6%E5%90%AF%E7%94%B0-%E6%95%85%E4%B9%A1.mp4", "logo": "http://175.178.251.183:6689/LR.jpg"}
         ]
     }
 ]
