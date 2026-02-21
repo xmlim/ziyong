@@ -47,7 +47,8 @@ announcements = [
     {
         "channel": "LINTCL更新日期",
         "entries": [
-            {"name": None, "url": "https://gitlab.com/lr77/IPTV/-/raw/main/%E8%B5%B7%E9%A3%8E%E4%BA%86.mp4", "logo": "http://175.178.251.183:6689/LR.jpg"}
+            {"name": None, "url": "
+https://open.spotify.com/track/3ewRVZ2EolQkDrdkpDODR9?si=374cfded7827454e", "logo": "http://175.178.251.183:6689/LR.jpg"}
         ]
     }
 ]
