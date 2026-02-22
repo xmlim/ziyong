@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml,http://epg.51zmt.top:8000/e.xml,http://epg.aptvapp.com/xml,https://epg.pw/xmltv/epg_CN.xml,https://epg.pw/xmltv/epg_HK.xml,https://epg.pw/xmltv/epg_TW.xml"
-#EXTINF:-1 tvg-id="1" tvg-name="2026-02-22" tvg-logo="http://175.178.251.183:6689/LR.jpg" group-title="LINTCL更新日期",2026-02-22
+#EXTINF:-1 tvg-id="1" tvg-name="2026-02-23" tvg-logo="http://175.178.251.183:6689/LR.jpg" group-title="LINTCL更新日期",2026-02-23
 https://github.com/xmlim/1/raw/main/%E5%8F%B6%E5%90%AF%E7%94%B0-%E6%95%85%E4%B9%A1.mp4
 #EXTINF:-1 tvg-id="1" tvg-name="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV1.png" group-title="央视频道",CCTV1
 http://ott.fj.chinamobile.com/PLTV/88888888/224/3221226908/index.m3u8
