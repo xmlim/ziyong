@@ -1,5 +1,5 @@
 LINTCL更新日期,#genre#
-2026-04-12,https://gitlab.com/xmlim/m/-/raw/main/%E5%8F%B6%E5%90%AF%E7%94%B0-%E6%95%85%E4%B9%A1.mp4
+2026-04-13,https://gitlab.com/xmlim/m/-/raw/main/%E5%8F%B6%E5%90%AF%E7%94%B0-%E6%95%85%E4%B9%A1.mp4
 央视频道,#genre#
 CCTV1,http://27.148.240.185/PLTV/88888888/224/3221226773/1.m3u8
 CCTV1,http://27.148.240.185/PLTV/88888888/224/3221226914/1.m3u8
