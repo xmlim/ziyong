@@ -5,6 +5,7 @@ source_urls = [
     "https://raw.githubusercontent.com/xmlim/1/main/FJCUCC.M3U",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJTELE.m3u",
     "https://raw.githubusercontent.com/xmlim/ziyong/main/FJCMCC.m3u",
+    "https://raw.githubusercontent.com/xmlim/ziyong/main/tw.txt",
     # 台湾频道源（示例，请测试可用性）
     #"https://raw.githubusercontent.com/iptv-org/iptv/master/countries/tw.m3u",
     #"https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/global.m3u",
