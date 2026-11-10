@@ -1,27 +1,48 @@
-https://tv.lintcl.com/65/0   民視
-https://tv.lintcl.com/65/1   民視
-https://tv.lintcl.com/65/2   民視
-https://tv.lintcl.com/65/3   民視
-https://tv.lintcl.com/65/4   民視
-https://tv.lintcl.com/65/5   民視
-
-https://tv.lintcl.com/66/0   台視
-https://tv.lintcl.com/66/1   台視
-https://tv.lintcl.com/66/2   台視
-https://tv.lintcl.com/66/3   台視
-https://tv.lintcl.com/66/4   台視
-https://tv.lintcl.com/66/5   台視
-
-https://tv.lintcl.com/67/0   中視
-https://tv.lintcl.com/67/1   中視
-https://tv.lintcl.com/67/2   中視
-https://tv.lintcl.com/67/3   中視
-https://tv.lintcl.com/67/4   中視
-https://tv.lintcl.com/67/5   中視
-
-https://tv.lintcl.com/68/0   華視
-https://tv.lintcl.com/68/1   華視
-https://tv.lintcl.com/68/2   華視
-https://tv.lintcl.com/68/3   華視
-https://tv.lintcl.com/68/4   華視
-https://tv.lintcl.com/68/5   華視
+#EXTINF:-1 ,民视
+https://tv.lintcl.com/65/0
+#EXTINF:-1 ,民视
+https://tv.lintcl.com/65/1
+#EXTINF:-1 ,民视
+https://tv.lintcl.com/65/2
+#EXTINF:-1 ,民视
+https://tv.lintcl.com/65/3
+#EXTINF:-1 ,民视
+https://tv.lintcl.com/65/4
+#EXTINF:-1 ,民视
+https://tv.lintcl.com/65/5
+#EXTINF:-1 ,台视
+https://tv.lintcl.com/66/0
+#EXTINF:-1 ,台视
+https://tv.lintcl.com/66/1
+#EXTINF:-1 ,台视
+https://tv.lintcl.com/66/2
+#EXTINF:-1 ,台视
+https://tv.lintcl.com/66/3
+#EXTINF:-1 ,台视
+https://tv.lintcl.com/66/4
+#EXTINF:-1 ,台视
+https://tv.lintcl.com/66/5
+#EXTINF:-1 ,中视
+https://tv.lintcl.com/67/0
+#EXTINF:-1 ,中视
+https://tv.lintcl.com/67/1
+#EXTINF:-1 ,中视
+https://tv.lintcl.com/67/2
+#EXTINF:-1 ,中视
+https://tv.lintcl.com/67/3
+#EXTINF:-1 ,中视
+https://tv.lintcl.com/67/4
+#EXTINF:-1 ,中视
+https://tv.lintcl.com/67/5
+#EXTINF:-1 ,华视
+https://tv.lintcl.com/68/0
+#EXTINF:-1 ,华视
+https://tv.lintcl.com/68/1
+#EXTINF:-1 ,华视
+https://tv.lintcl.com/68/2
+#EXTINF:-1 ,华视
+https://tv.lintcl.com/68/3
+#EXTINF:-1 ,华视
+https://tv.lintcl.com/68/4
+#EXTINF:-1 ,华视
+https://tv.lintcl.com/68/5
