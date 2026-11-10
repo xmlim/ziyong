@@ -139,6 +139,54 @@ http://27.148.240.185/PLTV/88888888/224/3221227055/1.m3u8
 http://ott.fj.chinamobile.com/PLTV/88888888/224/3221226986/index.m3u8
 #EXTINF:-1 tvg-id="3" tvg-name="CCTV17" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/CCTV17.png" group-title="央视频道",CCTV17
 http://ott.fj.chinamobile.com/PLTV/88888888/224/3221226990/index.m3u8
+#EXTINF:-1 tvg-id="1" tvg-name="中视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/中视.png" group-title="仅学习勿商用",中视
+https://tv.lintcl.com/67/0
+#EXTINF:-1 tvg-id="2" tvg-name="中视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/中视.png" group-title="仅学习勿商用",中视
+https://tv.lintcl.com/67/1
+#EXTINF:-1 tvg-id="3" tvg-name="中视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/中视.png" group-title="仅学习勿商用",中视
+https://tv.lintcl.com/67/2
+#EXTINF:-1 tvg-id="4" tvg-name="中视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/中视.png" group-title="仅学习勿商用",中视
+https://tv.lintcl.com/67/3
+#EXTINF:-1 tvg-id="5" tvg-name="中视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/中视.png" group-title="仅学习勿商用",中视
+https://tv.lintcl.com/67/4
+#EXTINF:-1 tvg-id="6" tvg-name="中视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/中视.png" group-title="仅学习勿商用",中视
+https://tv.lintcl.com/67/5
+#EXTINF:-1 tvg-id="1" tvg-name="华视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/华视.png" group-title="仅学习勿商用",华视
+https://tv.lintcl.com/68/0
+#EXTINF:-1 tvg-id="2" tvg-name="华视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/华视.png" group-title="仅学习勿商用",华视
+https://tv.lintcl.com/68/1
+#EXTINF:-1 tvg-id="3" tvg-name="华视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/华视.png" group-title="仅学习勿商用",华视
+https://tv.lintcl.com/68/2
+#EXTINF:-1 tvg-id="4" tvg-name="华视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/华视.png" group-title="仅学习勿商用",华视
+https://tv.lintcl.com/68/3
+#EXTINF:-1 tvg-id="5" tvg-name="华视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/华视.png" group-title="仅学习勿商用",华视
+https://tv.lintcl.com/68/4
+#EXTINF:-1 tvg-id="6" tvg-name="华视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/华视.png" group-title="仅学习勿商用",华视
+https://tv.lintcl.com/68/5
+#EXTINF:-1 tvg-id="1" tvg-name="民视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/民视.png" group-title="仅学习勿商用",民视
+https://tv.lintcl.com/65/0
+#EXTINF:-1 tvg-id="2" tvg-name="民视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/民视.png" group-title="仅学习勿商用",民视
+https://tv.lintcl.com/65/1
+#EXTINF:-1 tvg-id="3" tvg-name="民视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/民视.png" group-title="仅学习勿商用",民视
+https://tv.lintcl.com/65/2
+#EXTINF:-1 tvg-id="4" tvg-name="民视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/民视.png" group-title="仅学习勿商用",民视
+https://tv.lintcl.com/65/3
+#EXTINF:-1 tvg-id="5" tvg-name="民视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/民视.png" group-title="仅学习勿商用",民视
+https://tv.lintcl.com/65/4
+#EXTINF:-1 tvg-id="6" tvg-name="民视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/民视.png" group-title="仅学习勿商用",民视
+https://tv.lintcl.com/65/5
+#EXTINF:-1 tvg-id="1" tvg-name="台视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/台视.png" group-title="仅学习勿商用",台视
+https://tv.lintcl.com/66/0
+#EXTINF:-1 tvg-id="2" tvg-name="台视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/台视.png" group-title="仅学习勿商用",台视
+https://tv.lintcl.com/66/1
+#EXTINF:-1 tvg-id="3" tvg-name="台视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/台视.png" group-title="仅学习勿商用",台视
+https://tv.lintcl.com/66/2
+#EXTINF:-1 tvg-id="4" tvg-name="台视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/台视.png" group-title="仅学习勿商用",台视
+https://tv.lintcl.com/66/3
+#EXTINF:-1 tvg-id="5" tvg-name="台视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/台视.png" group-title="仅学习勿商用",台视
+https://tv.lintcl.com/66/4
+#EXTINF:-1 tvg-id="6" tvg-name="台视" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/台视.png" group-title="仅学习勿商用",台视
+https://tv.lintcl.com/66/5
 #EXTINF:-1 tvg-id="1" tvg-name="福建综合" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/福建综合.png" group-title="福建频道",福建综合
 http://27.148.240.185/PLTV/88888888/224/3221226722/1.m3u8
 #EXTINF:-1 tvg-id="2" tvg-name="福建综合" tvg-logo="https://gcore.jsdelivr.net/gh/yuanzl77/TVlogo@master/png/福建综合.png" group-title="福建频道",福建综合
