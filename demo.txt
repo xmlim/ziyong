@@ -18,7 +18,7 @@ CCTV15,
 CCTV16,
 CCTV17,
 
-仅学习勿商用,#genre#
+TW频道,#genre#
 中视,
 华视,
 民视,
